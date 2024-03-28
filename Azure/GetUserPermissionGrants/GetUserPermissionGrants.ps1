@@ -1,10 +1,6 @@
 # Before running this script you need to call Connect-MgGraph -TenantID <Your_Tenant_ID>
 # Ensure you authenticate successfully before running this script!
 
-# We will be using the Get-MgOauth2PermissionGrant command to get this information
-# Id = OAuth2PermissionGrantId
-# CLientId = 
-
 #Initialize Array to store custom object with information about each permission grant
 $myArray = @()
 
