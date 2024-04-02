@@ -34,6 +34,12 @@ EntraID --> App Registrations --> Go to the app you created --> API Permissions 
 
 Required permissions 
 
+Device. Read
+Directory.Read.All
+offline_access
+openid
+profile
+User.Read
 
  
 
