@@ -1,0 +1,162 @@
+Things you need before you start: 
+
+Install Bloodhound  
+
+Install AzureHound 
+
+If on Windows you need the AMD Version 
+
+Ensure it is the most current stable release and not a rolling release  
+
+Ensure there is a Defender exception for the folders that you placed Azure/Bloodhound otherwise Defender will remove and block their execution 
+
+Add a file exception for the actual file  
+
+Add a process exception for azurehound.exe 
+
+Create and Application in EntraID 
+
+EntraID --> Applications --> New Registration --> <complete this> 
+
+Ensure you assign your pim account to this application 
+
+Create a Client Secret and ensure you save the secret value somewhere for later use 
+
+EntraID --> App Registrations --> Go to the App you created --> Certificates & Secrets --> Client Secrets --> New Client Secret 
+
+Now we need to allow Device Login 
+
+EntraID --> Applications --> App Registration --> Authentication --> Advanced Settings --> Allow Public Client Flows --> YES 
+
+Granting the Appropriate Permissions 
+
+EntraID --> App Registrations --> Go to the app you created --> API Permissions --> Add a permission 
+
+Required permissions 
+
+
+ 
+
+Give the Application necessary Permissions 
+
+Will most likely need Global Admin to set this up 
+
+Reference : AzureHound Enterprise Azure Configuration – BloodHound (bloodhoundenterprise.io) 
+
+Give the Application "Directory Reader" role in Azure AD tenant 
+
+Grant "Reader" role on all subscriptions 
+
+ 
+
+##################################################################################### 
+
+WORKING METHOD 
+
+##################################################################################### 
+
+ 
+
+Download Azurehound from their GitHub Repository 
+
+Ensure you download a stable release and not a rolling release 
+
+ 
+
+Open Powershell Terminal to the folder path of azurehound.exe 
+
+ 
+
+Enter the following command: 
+
+Reference: Create an AzureHound Configuration – BloodHound (bloodhoundenterprise.io) 
+
+.\azurehound.exe configure 
+
+Cloud 
+
+Enter tenantID 
+
+Enter AppID (of the application we made for Azurehound) 
+
+Client Secret 
+
+Enter the Clien Secret from before that we created for the app 
+
+And N to verything else 
+
+ 
+
+Verify the config file 
+
+Should be located at C:\Users\<youUser>\.config\azurehound\config.json 
+
+This is what it should look like 
+
+{ 
+
+  "access-types": [], 
+
+  "app": "<yourAppID", 
+
+  "auth": "", 
+
+  "cert": "", 
+
+  "config": "C:\\Users\\<yourUser>\\.config\\azurehound\\config.json", 
+
+  "graph": "", 
+
+  "instance": "", 
+
+  "json": false, 
+
+  "jwt": "", 
+
+  "key": "", 
+
+  "keypass": "", 
+
+  "log-file": "", 
+
+  "mgmt": "", 
+
+  "mgmtgroupid": [], 
+
+  "output": "", 
+
+  "password": "", 
+
+  "pprof": "", 
+
+  "proxy": "", 
+
+  "refresh-token": "", 
+
+  "region": "cloud", 
+
+  "secret": "<yourClientSecret>", 
+
+  "subscriptionid": [], 
+
+  "tenant": "<yourTenantID>", 
+
+  "token": "", 
+
+  "tokenid": "", 
+
+  "username": "", 
+
+  "verbosity": 0 
+
+} 
+
+ 
+
+Run AzureHound!! 
+
+.\azurehound.exe --list –tenant "<yourtenantCommonName>" -o output.json 
+
+ 
+
+ 
