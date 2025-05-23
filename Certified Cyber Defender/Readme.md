@@ -188,11 +188,23 @@ Process List --> *Windows.System.Pslist*
 
 Process Tree --> *Generic.System.Pstree*
 
-## **Email Security**
-
-
-
 Network Connections (netstat) --> *Windows.Network.Netstat*
 
 Windows Services --> *Windows.System.Services*
+
+## **Email Security**
+
+### **DMARC**
+
+Check DMARC Record for Domain:
+
+```
+┌──(lemagickonch㉿kali)-[~]
+└─$ dig +short TXT _dmarc.alkosto.com.co
+"v=DMARC1; p=quarantine; pct=100; rua=mailto:raphael.lopez@alkosto.com,mailto:boletin@alkosto.com; ruf=mailto:raphael.lopez@alkosto.com; sp=reject; ri=84600;fo=1;"
+```
+
+In the above output, emails for failed DMARC will be sent to : *raphael.lopez@alkosto.co*
+
+
 
