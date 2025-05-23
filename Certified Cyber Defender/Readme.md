@@ -5,6 +5,7 @@
   * [Suricata](#suricata)
   * [Rita](#rita)
   * [Sysmon](#sysmon)
+  * [Velociraptor](#velociraptor)
 <!--te-->
 
 ## **Suricata**
