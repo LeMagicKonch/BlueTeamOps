@@ -78,6 +78,14 @@ Step 4: Test Rule
 
 ### **Importing Logs Into Rita**
 
+First, convert pcap into a file for Rita:
+
+```
+zeek -r <file-path>.pcap local
+```
+
+then, import into Rita:
+
 ```
 sudo rita import <file-paths>
 ```
