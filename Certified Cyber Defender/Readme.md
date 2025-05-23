@@ -5,7 +5,6 @@
   * [Suricata](#suricata)
   * [Rita](#rita)
 <!--te-->
-# **Given Creden
 
 ## **Suricata**
 
