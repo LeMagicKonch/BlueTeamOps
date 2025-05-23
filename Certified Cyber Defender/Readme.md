@@ -4,6 +4,7 @@
 <!--ts-->
   * [Suricata](#suricata)
   * [Rita](#rita)
+  * [Sysmon](#sysmon)
 <!--te-->
 
 ## **Suricata**
@@ -121,3 +122,24 @@ Generate an HTML formated report
 ```
 rita html-report octopus
 ```
+
+## **Sysmon**
+
+### **Creating Custom Detection Rule**
+
+Step 1: Config File Format
+
+![image](https://github.com/user-attachments/assets/ddb8a5b9-b6d0-43a6-a116-9802c8e57e1f)
+
+Step 2: Place Config File in Sysmon Directory
+
+Remember that the file name should be like : *processcreate.rule*
+
+Step 3: Open PowerShell as Admin
+
+Step 4: Update Sysmon Config
+
+```
+.\Sysmon64.exe -c <file-path>.rule
+```
+
