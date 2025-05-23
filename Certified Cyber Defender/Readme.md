@@ -154,3 +154,26 @@ Step 4: Update Sysmon Config
 ![image](https://github.com/user-attachments/assets/9d03a00b-f4e2-4352-9e33-b10e5e912744)
 
 Then follow the same steps to update Sysmon config
+
+## **Velociraptor**
+
+References:
+https://docs.velociraptor.app/docs/deployment/
+
+### **Accessing Velociraptor**
+
+On the Velociraptor server, open a web browser and go to: *https://127.0.0.1:8889*
+
+### **Starting Hunts**
+
+Step 1: Go To *Hunt Manager*
+
+Step 2: Select *New Hunt*
+
+Step 3: Give Name to Hunt (be descriptive)
+
+Step 4: Select Artifacts to Hunt
+
+Step 5: Select *Launch*
+
+Step 6: Select Hunt you want to run and then click *Run Hunt*
