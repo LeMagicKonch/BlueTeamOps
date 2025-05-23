@@ -125,6 +125,10 @@ rita html-report octopus
 
 ## **Sysmon**
 
+Resources:
+
+https://github.com/trustedsec/SysmonCommunityGuide
+
 ### **Creating Custom Detection Rule**
 
 Step 1: Config File Format
