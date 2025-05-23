@@ -65,3 +65,11 @@ rule-files:
   - suricata.rules
   - local.rules
 ```
+
+Step 3: Reload Suricata
+
+```
+sudo kill -USR2 $(pidof suricata)
+```
+
+Step 4: Test Rule
