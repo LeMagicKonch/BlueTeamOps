@@ -178,3 +178,16 @@ Step 4: Select Artifacts to Hunt
 Step 5: Select *Launch*
 
 Step 6: Select Hunt you want to run and then click *Run Hunt*
+
+### **Top Useful Artifacts To Hunt**
+
+File Downloads --> *Windows.Analysis.EvidenceOfDownload*
+
+Process List --> *Windows.System.Pslist*
+
+Process Tree --> *Generic.System.Pstree*
+
+Network Connections (netstat) --> *Windows.Network.Netstat*
+
+Windows Services --> *Windows.System.Services*
+
