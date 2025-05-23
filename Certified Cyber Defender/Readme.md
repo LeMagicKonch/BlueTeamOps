@@ -73,3 +73,35 @@ sudo kill -USR2 $(pidof suricata)
 ```
 
 Step 4: Test Rule
+
+## **Rita**
+
+### **Importing Logs Into Rita**
+
+```
+sudo rita import <file-paths>
+```
+
+### **Analyzing Suspicious DNS Activity**
+
+Step 1: Import Logs
+
+See above example command
+
+Step 2: Identify Beaconing Domains
+
+```
+sudo rita show-beacons-fqdn <file-name> -H
+```
+
+Step 3: Explode DNS Traffic
+
+```
+sudo rita show-exploded-dns <file-path> -H | more
+```
+
+Step 4: Isolate the Malicious Domain
+
+```
+sudo rita show-exploded-dns <file-path> | grep <domain>
+```
