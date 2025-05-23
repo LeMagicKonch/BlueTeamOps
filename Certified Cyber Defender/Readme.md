@@ -82,7 +82,7 @@ Step 4: Test Rule
 sudo rita import <file-paths>
 ```
 
-### **Analyzing Suspicious DNS Activity**
+### **Analyzing Suspicious DNS Activity/Tunneling**
 
 Step 1: Import Logs
 
@@ -104,4 +104,12 @@ Step 4: Isolate the Malicious Domain
 
 ```
 sudo rita show-exploded-dns <file-path> | grep <domain>
+```
+
+### **Generate Report with Findings**
+
+Generate an HTML formated report
+
+```
+rita html-report octopus
 ```
