@@ -143,3 +143,10 @@ Step 4: Update Sysmon Config
 .\Sysmon64.exe -c <file-path>.rule
 ```
 
+### **Create Custom Block Executable Rule**
+
+#### Example Rule
+
+![image](https://github.com/user-attachments/assets/9d03a00b-f4e2-4352-9e33-b10e5e912744)
+
+Then follow the same steps to update Sysmon config
