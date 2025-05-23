@@ -87,7 +87,7 @@ zeek -r <file-path>.pcap local
 then, import into Rita:
 
 ```
-sudo rita import <file-paths>
+sudo rita import <file-paths> <name-of-DB>
 ```
 
 ### **Analyzing Suspicious DNS Activity/Tunneling**
@@ -99,19 +99,19 @@ See above example command
 Step 2: Identify Beaconing Domains
 
 ```
-sudo rita show-beacons-fqdn <file-name> -H
+sudo rita show-beacons-fqdn <DB-name> -H
 ```
 
 Step 3: Explode DNS Traffic
 
 ```
-sudo rita show-exploded-dns <file-path> -H | more
+sudo rita show-exploded-dns <DB-path> -H | more
 ```
 
 Step 4: Isolate the Malicious Domain
 
 ```
-sudo rita show-exploded-dns <file-path> | grep <domain>
+sudo rita show-exploded-dns <DB-path> | grep <domain>
 ```
 
 ### **Generate Report with Findings**
