@@ -34,3 +34,9 @@ Types of Log Files:
    Rich JSON-formatted logs for granular analysis
 7. stats.log
    performance metrics
+
+### **Analyzing PCAPs with Suricata**
+
+```
+sudo suricata -r <file-path>.pcap
+```
