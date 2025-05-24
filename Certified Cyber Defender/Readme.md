@@ -283,5 +283,14 @@ Downloading files will most likely use GET requests. The below WireShark filter 
 http.request.method == "GET"
 ```
 
+#### **Extract Files from PCAP**
+
+File --> Export Objects --> HTTP
+
+To get the file hash of the exported file on linux:
+
+```
+sha256sum <file-path>
+```
 
 
