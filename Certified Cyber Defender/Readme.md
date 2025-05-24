@@ -195,11 +195,10 @@ Windows Services --> *Windows.System.Services*
 ## **Email Security**
 
 Sandboxes:
-
-https://www.hybrid-analysis.com/
-https://www.vmray.com/
-https://www.joesandbox.com/#windows
-https://any.run/
+- https://www.hybrid-analysis.com/
+- https://www.vmray.com/
+- https://www.joesandbox.com/#windows
+- https://any.run/
 
 Cuckoo Setup:
 - https://download.cyberdefenders.org/BlueDemy/CCD/Cuckoo.pdf?_gl=1*az31uv*_gcl_au*MjE0NzA5ODM3My4xNzQ4MDI4OTU4Ljk2ODk2NjEwMC4xNzQ4MDQ2MzA3LjE3NDgwNDczNDU.*_ga*MTMzOTk3NTY2NC4xNzQ4MDI4OTU4*_ga_S3NEJKDDX5*czE3NDgwNDU5MzMkbzQkZzEkdDE3NDgwNDc4MDMkajU5JGwwJGgxNDY3MjY1MTU4JGRHd3dFZ0lfNUJDVFJrM3JmN1ZWeWlJeFdZY2hTNndMMUNR
