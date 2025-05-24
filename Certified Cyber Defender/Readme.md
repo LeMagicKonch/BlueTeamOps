@@ -293,4 +293,15 @@ To get the file hash of the exported file on linux:
 sha256sum <file-path>
 ```
 
+#### **Search For Strings In Packet Data**
+
+Sometimes you want to look for specific data in the packets so we want to search the packet contents for a specific string.
+
+Do This:
+
+1. Click *Find*
+2. Change data type to *string*
+3. Change search location to *Packet Details*
+
+![image](https://github.com/user-attachments/assets/89604e9a-0618-452e-a4a0-96152bdd43c6)
 
