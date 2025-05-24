@@ -303,5 +303,7 @@ Do This:
 2. Change data type to *string*
 3. Change search location to *Packet Details*
 
+Example:
+
 ![image](https://github.com/user-attachments/assets/89604e9a-0618-452e-a4a0-96152bdd43c6)
 
