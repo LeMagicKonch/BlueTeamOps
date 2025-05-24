@@ -9,6 +9,7 @@
   * [Email Security](#email-security)
     * [GoPhish](#gophish)
     * [Honey Token](#honey-token)
+  * [Network Forensics](#network-forensics)
 <!--te-->
 
 ## **Suricata**
@@ -252,12 +253,35 @@ Reference:
 1. https://www.youtube.com/watch?v=lVp0MHvRHIo&feature=youtu.be
 2. Email Harvester --> https://github.com/maldevel/EmailHarvester
 
+### Finding Version of GoPhish
+
+```
+systemctl list-unites --type=service
+
+ps aux | grep gophish
+
+cat /home/ubuntu/Desktop/CCD/gophish/VERSION
+```
+
+
+
 ## **Honey Token**
 
 Reference:
 1. https://www.youtube.com/watch?v=jzUwVr0Sz-s
 
 
+## **Network Forensics**
+
+### **Wireshark**
+
+#### **Find Downloaded Files**
+
+Downloading files will most likely use GET requests. The below WireShark filter will find all GET requests:
+
+```
+http.request.method == "GET"
+```
 
 
 
