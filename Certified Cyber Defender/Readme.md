@@ -194,6 +194,19 @@ Windows Services --> *Windows.System.Services*
 
 ## **Email Security**
 
+### **SPF**
+
+Popular SPF Mechanisms:
+
+![image](https://github.com/user-attachments/assets/95112bc9-eb79-4b55-8f91-eda1d7f7f237)
+
+
+### **Enumerate SPF Records**
+
+![image](https://github.com/user-attachments/assets/fe852192-192f-4c35-8a4a-4438516b8fc3)
+
+
+
 ### **DMARC**
 
 Check DMARC Record for Domain:
