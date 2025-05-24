@@ -202,6 +202,9 @@ Sandboxes:
 - https://www.joesandbox.com/#windows
 - https://any.run/
 
+Activity: Analyze Exposed Email Headers
+- https://download.cyberdefenders.org/BlueDemy/CCD/Evaluate_your_organization's_exposed_internal_mail_headers.pdf?_gl=1*j0zqhl*_gcl_au*MTA5MDAzMTQ5LjE3NDgxMDg2NTQuOTk0Njg4NDEzLjE3NDgxMDg2NjEuMTc0ODEwODY2MQ..*_ga*NzY1NzY5NzA2LjE3NDgxMDg2NTQ.*_ga_S3NEJKDDX5*czE3NDgxMDg2NTQkbzEkZzEkdDE3NDgxMDg3MTAkajQkbDAkaDY3NjY5NDAyMCRkaUtKR3pQbEpaRzdHTmdOOG1OOXVncy1VVnhkSjFGSGdoUQ..
+
 Cuckoo Setup:
 - https://download.cyberdefenders.org/BlueDemy/CCD/Cuckoo.pdf?_gl=1*az31uv*_gcl_au*MjE0NzA5ODM3My4xNzQ4MDI4OTU4Ljk2ODk2NjEwMC4xNzQ4MDQ2MzA3LjE3NDgwNDczNDU.*_ga*MTMzOTk3NTY2NC4xNzQ4MDI4OTU4*_ga_S3NEJKDDX5*czE3NDgwNDU5MzMkbzQkZzEkdDE3NDgwNDc4MDMkajU5JGwwJGgxNDY3MjY1MTU4JGRHd3dFZ0lfNUJDVFJrM3JmN1ZWeWlJeFdZY2hTNndMMUNR
 - https://www.youtube.com/watch?v=T11ebEozlYk
@@ -242,6 +245,7 @@ DKIM Status':
 
 Reference:
 1. https://www.youtube.com/watch?v=lVp0MHvRHIo&feature=youtu.be
+2. Email Harvester --> https://github.com/maldevel/EmailHarvester
 
 ## **Honey Token**
 
