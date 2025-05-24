@@ -194,6 +194,13 @@ Windows Services --> *Windows.System.Services*
 
 ## **Email Security**
 
+Sandboxes:
+
+https://www.hybrid-analysis.com/
+https://www.vmray.com/
+https://www.joesandbox.com/#windows
+https://any.run/
+
 ### **SPF**
 
 Popular SPF Mechanisms:
