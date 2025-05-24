@@ -219,5 +219,13 @@ Check DMARC Record for Domain:
 
 In the above output, emails for failed DMARC will be sent to : *raphael.lopez@alkosto.co*
 
+### **DKIM**
+
+DKIM Status':
+
+![image](https://github.com/user-attachments/assets/560a74bb-6617-4f11-8872-0660eade1870)
+
+
+
 
 
