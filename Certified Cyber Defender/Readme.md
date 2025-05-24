@@ -10,6 +10,8 @@
     * [GoPhish](#gophish)
     * [Honey Token](#honey-token)
   * [Network Forensics](#network-forensics)
+    * [WireShark](#wireshark)
+    * [Zui](#zui)
 <!--te-->
 
 ## **Suricata**
@@ -307,3 +309,10 @@ Example:
 
 ![image](https://github.com/user-attachments/assets/89604e9a-0618-452e-a4a0-96152bdd43c6)
 
+### **Zui**
+
+#### **Find All Alerts**
+
+```
+event_type == 'alert'
+```
