@@ -7,6 +7,8 @@
   * [Sysmon](#sysmon)
   * [Velociraptor](#velociraptor)
   * [Email Security](#email-security)
+    * [GoPhish](#gophish)
+    * [Honey Token](#honey-token)
 <!--te-->
 
 ## **Suricata**
@@ -234,6 +236,17 @@ In the above output, emails for failed DMARC will be sent to : *raphael.lopez@al
 DKIM Status':
 
 ![image](https://github.com/user-attachments/assets/560a74bb-6617-4f11-8872-0660eade1870)
+
+
+## **GoPhish**
+
+Reference:
+1. https://www.youtube.com/watch?v=lVp0MHvRHIo&feature=youtu.be
+
+## **Honey Token**
+
+Reference:
+1. https://www.youtube.com/watch?v=jzUwVr0Sz-s
 
 
 
