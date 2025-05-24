@@ -209,6 +209,11 @@ Cuckoo Setup:
 - https://download.cyberdefenders.org/BlueDemy/CCD/Cuckoo.pdf?_gl=1*az31uv*_gcl_au*MjE0NzA5ODM3My4xNzQ4MDI4OTU4Ljk2ODk2NjEwMC4xNzQ4MDQ2MzA3LjE3NDgwNDczNDU.*_ga*MTMzOTk3NTY2NC4xNzQ4MDI4OTU4*_ga_S3NEJKDDX5*czE3NDgwNDU5MzMkbzQkZzEkdDE3NDgwNDc4MDMkajU5JGwwJGgxNDY3MjY1MTU4JGRHd3dFZ0lfNUJDVFJrM3JmN1ZWeWlJeFdZY2hTNndMMUNR
 - https://www.youtube.com/watch?v=T11ebEozlYk
 
+### Email Attack Response Plan
+
+![image](https://github.com/user-attachments/assets/69195efb-213f-48dc-afc8-4a32c935cd8c)
+
+
 ### **SPF**
 
 Popular SPF Mechanisms:
