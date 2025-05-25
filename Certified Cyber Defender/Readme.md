@@ -15,6 +15,7 @@
     * [Zui](#zui)
     * [HTTP Analysis](#http-analysis)
     * [SMB Analysis](#smb-analysis)
+    * [DNS Analysis](#dns-analysis)
 <!--te-->
 
 ## **Suricata**
@@ -415,4 +416,34 @@ Check *Distributed Computing Environment / Remote Call Procedures* which can be 
 
 ```
 _path == 'dce_rpc'
+```
+
+## **DNS Analysis**
+
+Use *passivedns* to quickly parse through large PCAP files for DNS logs:
+
+```
+sudo passivedns -r <file_path>.pcap -l ./passivedns.log
+```
+
+Find top DNS queries:
+
+```
+cat passivedns.log | awk -F '|' '{print $9}' | sort | uniq -c | sort
+```
+
+Find large number of DNS responses:
+
+```
+cat passivedns.log | awk '{print $7, $9}' | sort | uniq -c
+```
+
+### **Extracting Objects*
+
+```
+#Check for embedded files
+binwalk.exe contact.php
+
+#Extract embedded files
+binwalk.exe -e contact.php
 ```
