@@ -10,6 +10,7 @@
     * [GoPhish](#gophish)
     * [Honey Token](#honey-token)
   * [Network Forensics](#network-forensics)
+    * [Preparing Network Captures for Analysis](#preparing-network-captures-for-analysis)
     * [WireShark](#wireshark)
     * [Zui](#zui)
 <!--te-->
@@ -274,6 +275,39 @@ Reference:
 
 
 ## **Network Forensics**
+
+### **Preparing Network Captures for Analysis**
+
+#### **Create NetFlow Records**
+
+```
+nfpcapd -r infile.pcap -z -w /output/Directory -t interval
+```
+
+#### **Using Zeek**
+
+```
+zeek -r infile.pcap Log::default_logdir=./output/Directory
+```
+
+##### Types of Zeek Logs
+
+1. conn.log --> TCP/UDP/ICMP connections
+2. dns.log --> DNS logs
+3. http.log --> HTTP Traffic
+
+##### Analyzing Zeek Log Files
+
+1. zeek-cut
+2. awk
+
+Example:
+
+```
+awk '/#fields/ {for (i=2; i<=NF; i++) print $i}' http.log
+```
+
+
 
 ### **Wireshark**
 
