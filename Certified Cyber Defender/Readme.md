@@ -14,6 +14,7 @@
     * [WireShark](#wireshark)
     * [Zui](#zui)
     * [HTTP Analysis](#http-analysis)
+    * [SMB Analysis](#smb-analysis)
 <!--te-->
 
 ## **Suricata**
@@ -388,3 +389,28 @@ cat access.log | awk '{print $1 $9}' | sort | uniq -c | sort
 cat access.log | awk -F '"' '{print $1 $6}' | cut -d " " -f1,7- | sort | uniq -
 ```
 
+### **SMB Analysis**
+
+In Zui we can use the following queries:
+
+Check All Notices and look for *lateral movement*:
+
+```
+_path == 'notice' | sort ts
+```
+
+Files accessed or shared via SMB:
+
+```
+_path == 'smb_files' | sort ts
+```
+
+Find accessed shares and their mapping:
+
+```
+_path == 'smb_mapping' | sort ts
+```
+
+```
+_path == 'dce_rpc'
+```
