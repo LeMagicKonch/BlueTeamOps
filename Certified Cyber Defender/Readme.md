@@ -313,6 +313,12 @@ Example - AWK:
 awk '/#fields/ {for (i=2; i<=NF; i++) print $i}' http.log
 ```
 
+##### Analyze HTTP Methods
+
+```
+cat access.log | awk '{print $1 $6}' | sort | uniq -c | sort 
+```
+
 Example - Zeek-Cut:
 
 ```
@@ -361,4 +367,10 @@ Example:
 
 ```
 event_type == 'alert'
+```
+
+#### **Filter by Source IP**
+
+```
+id.orig_h == '<ip address'
 ```
