@@ -301,10 +301,16 @@ zeek -r infile.pcap Log::default_logdir=./output/Directory
 1. zeek-cut
 2. awk
 
-Example:
+Example - AWK:
 
 ```
 awk '/#fields/ {for (i=2; i<=NF; i++) print $i}' http.log
+```
+
+Example - Zeek-Cut:
+
+```
+cat http.log | zeek-cut id.orig_h id.resp_h uri
 ```
 
 
