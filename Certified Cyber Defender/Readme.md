@@ -411,6 +411,8 @@ Find accessed shares and their mapping:
 _path == 'smb_mapping' | sort ts
 ```
 
+Check *Distributed Computing Environment / Remote Call Procedures* which can be associated with SMB:
+
 ```
 _path == 'dce_rpc'
 ```
