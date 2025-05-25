@@ -278,13 +278,19 @@ Reference:
 
 ### **Preparing Network Captures for Analysis**
 
-#### **Create NetFlow Records**
+#### **NetFlow Records**
 
 ```
 nfpcapd -r infile.pcap -z -w /output/Directory -t interval
 ```
 
-#### **Using Zeek**
+##### Analyzing NetFlow Records
+
+```
+nfdump -R path/to/netflowRecords/ -n 10 -s scrip/packets
+```
+
+#### **Zeek**
 
 ```
 zeek -r infile.pcap Log::default_logdir=./output/Directory
