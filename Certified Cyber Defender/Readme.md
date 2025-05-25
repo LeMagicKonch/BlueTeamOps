@@ -13,6 +13,7 @@
     * [Preparing Network Captures for Analysis](#preparing-network-captures-for-analysis)
     * [WireShark](#wireshark)
     * [Zui](#zui)
+    * [HTTP Analysis](#http-analysis)
 <!--te-->
 
 ## **Suricata**
@@ -313,19 +314,11 @@ Example - AWK:
 awk '/#fields/ {for (i=2; i<=NF; i++) print $i}' http.log
 ```
 
-##### Analyze HTTP Methods
-
-```
-cat access.log | awk '{print $1 $6}' | sort | uniq -c | sort 
-```
-
 Example - Zeek-Cut:
 
 ```
 cat http.log | zeek-cut id.orig_h id.resp_h uri
 ```
-
-
 
 ### **Wireshark**
 
@@ -374,3 +367,24 @@ event_type == 'alert'
 ```
 id.orig_h == '<ip address'
 ```
+
+### **HTTP Analysis**
+
+#### Analyze HTTP Methods
+
+```
+cat access.log | awk '{print $1 $6}' | sort | uniq -c | sort
+```
+
+#### Analyze HTTP Return Codes
+
+```
+cat access.log | awk '{print $1 $9}' | sort | uniq -c | sort
+```
+
+#### Analyze User Agenets
+
+```
+cat access.log | awk -F '"' '{print $1 $6}' | cut -d " " -f1,7- | sort | uniq -
+```
+
