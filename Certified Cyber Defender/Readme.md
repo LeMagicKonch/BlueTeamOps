@@ -16,6 +16,7 @@
     * [HTTP Analysis](#http-analysis)
     * [SMB Analysis](#smb-analysis)
     * [DNS Analysis](#dns-analysis)
+    * [Digital Forensics: Network Lab 2](#Digital-Forensics:-Network-Lab-2)
 <!--te-->
 
 ## **Suricata**
@@ -473,3 +474,18 @@ We can also look for HTTP methods that are commonly used to send data to web ser
 ```
 http.request.method == "POST"
 ```
+
+##### Extract Malicious Upload
+
+First, go to the packet of the POST HTTP method that uploaded the malicious ISO file.
+
+Then extract the payload from the pcap file:
+
+![image](https://github.com/user-attachments/assets/474c7cd1-89ef-413a-8254-04b72e12f5f8)
+
+Lastly, use *binwalk* to check for embedded executables and extract them from the ISO file.
+
+![image](https://github.com/user-attachments/assets/16049144-b6c5-438d-96f1-94c840962271)
+
+NOTE:
+- In this example, the ISO file contained *ADOBE.exe* and *DOCUMENT.lnk*
