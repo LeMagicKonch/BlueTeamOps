@@ -18,6 +18,7 @@
     * [DNS Analysis](#dns-analysis)
     * [Digital Forensics: Network Lab 2](#Digital-Forensics:-Network-Lab-2)
  * [Digital Forensics](#digital-forensics)
+   * [DumpIt Collection](#dumpit-collection)
 <!--te-->
 
 ## **Suricata**
@@ -528,3 +529,48 @@ Tool Overview:
 ![image](https://github.com/user-attachments/assets/f6d6983e-cbeb-4bcb-9ce7-d9a6c85803ce)
 
 
+### **Live Windows Collection**
+
+Run *dumpit.exe* to collect raw image:
+
+```
+dumpit.exe /T raw
+```
+
+Next we need to ensure the capture was not corupted:
+
+```
+volatility -f <file_path>.raw imageinfo
+```
+
+### **Dead Windows Collection**
+
+This will cover how to collect from a powered off Windows Device.
+
+#### Hybernation File
+
+```
+C:\hyberfil.sys
+```
+
+Contains replica of memory of when device was put into hybernation
+
+#### Paging File
+
+```
+C:\pagefile.sys
+```
+
+#### Crash Dump
+
+```
+C:\Windows\memory.dmp
+```
+
+### **Linux Memory Collection**
+
+```
+uname -a
+
+sudo insmod line-<OS-Version>-generic.ko "path=<path-to-save>.mem format=lime timeout=0"
+```
