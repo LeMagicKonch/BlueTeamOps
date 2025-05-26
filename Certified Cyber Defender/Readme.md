@@ -447,3 +447,29 @@ binwalk.exe contact.php
 #Extract embedded files
 binwalk.exe -e contact.php
 ```
+
+### **Digital Forensics: Network Lab 2**
+
+#### **Creating Zeek Logs**
+
+```
+mkdir zeek
+
+zeek -r <file>.pcap Log::default_logdir=./zeek
+```
+
+#### **Finding Malicious Payloads**
+
+##### WireShark
+
+We can look for the *DOS* string in network traffic to identify *Portable Executables*:
+
+```
+frame contains "This program cannot be run in DOS mode"
+```
+
+We can also look for HTTP methods that are commonly used to send data to web servers:
+
+```
+http.request.method == "POST"
+```
