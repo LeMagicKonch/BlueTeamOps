@@ -489,3 +489,9 @@ Lastly, use *binwalk* to check for embedded executables and extract them from th
 
 NOTE:
 - In this example, the ISO file contained *ADOBE.exe* and *DOCUMENT.lnk*
+
+##### Cobalt Strike Config Parser
+
+Since we saw Cobalt Strike alerts in *Zui* we can use the *Cobalt Strike Config Parser* to see if there is a config built into the *adobe.exe* file we found:
+
+![image](https://github.com/user-attachments/assets/673ec2e6-5d26-4700-90dc-ff62f209cbb9)
