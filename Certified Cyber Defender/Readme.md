@@ -485,7 +485,7 @@ Then extract the payload from the pcap file:
 
 Lastly, use *binwalk* to check for embedded executables and extract them from the ISO file.
 
-![image](https://github.com/user-attachments/assets/16049144-b6c5-438d-96f1-94c840962271)
+![image](https://github.com/user-attachments/assets/65dfe4eb-e71f-4036-8e0e-fcabfda2b06d)
 
 NOTE:
 - In this example, the ISO file contained *ADOBE.exe* and *DOCUMENT.lnk*
