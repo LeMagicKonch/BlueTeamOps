@@ -531,6 +531,14 @@ Tool Overview:
 
 ### **Live Windows Collection**
 
+First, we need to check for Disk Encryption. This is crucial because if the device uses disk encryption we need to conduct live collection becuase if the device loses power or shuts down the data will be encrypted.
+
+We can use *Encrypted Disk Detector* to check for disk encryption:
+
+```
+.\EDD.exe
+```
+
 Run *dumpit.exe* to collect raw image:
 
 ```
