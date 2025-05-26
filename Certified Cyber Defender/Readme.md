@@ -495,3 +495,23 @@ NOTE:
 Since we saw Cobalt Strike alerts in *Zui* we can use the *Cobalt Strike Config Parser* to see if there is a config built into the *adobe.exe* file we found:
 
 ![image](https://github.com/user-attachments/assets/673ec2e6-5d26-4700-90dc-ff62f209cbb9)
+
+##### Analyzing *document.lnk*
+
+![image](https://github.com/user-attachments/assets/7ae802bf-0666-43c6-a57c-5658c22520e7)
+
+##### Finding Command Execution
+
+First, I ran *strings* against the given pcap file looking for IOCs of command execution:
+
+![image](https://github.com/user-attachments/assets/d4208eaf-4778-4a95-bff1-ac53d80919b9)
+
+Seeing a couple instances of *PowerShell* I moved back to *WireShark* to get more info.
+
+I used the search functionality and queried for the string *PowerShell* in the *bytes of packets*
+
+![image](https://github.com/user-attachments/assets/5cdce877-2a6e-4fb0-a20d-9c1b8818cc6b)
+
+I came across this packet that showed some tampering with AV...
+
+
