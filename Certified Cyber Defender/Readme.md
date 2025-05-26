@@ -17,6 +17,7 @@
     * [SMB Analysis](#smb-analysis)
     * [DNS Analysis](#dns-analysis)
     * [Digital Forensics: Network Lab 2](#Digital-Forensics:-Network-Lab-2)
+ * [Digital Forensics](#digital-forensics)
 <!--te-->
 
 ## **Suricata**
@@ -513,5 +514,17 @@ I used the search functionality and queried for the string *PowerShell* in the *
 ![image](https://github.com/user-attachments/assets/5cdce877-2a6e-4fb0-a20d-9c1b8818cc6b)
 
 I came across this packet that showed some tampering with AV...
+
+## **Digital Forensics**
+
+### **Evidence Aquisition**
+
+Process:
+
+![image](https://github.com/user-attachments/assets/49ae61d7-24b9-467e-aaa9-c1f27f3decf8)
+
+Tool Overview:
+
+![image](https://github.com/user-attachments/assets/f6d6983e-cbeb-4bcb-9ce7-d9a6c85803ce)
 
 
