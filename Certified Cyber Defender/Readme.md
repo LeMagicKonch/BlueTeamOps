@@ -572,5 +572,5 @@ C:\Windows\memory.dmp
 ```
 uname -a
 
-sudo insmod line-<OS-Version>-generic.ko "path=<path-to-save>.mem format=lime timeout=0"
+sudo insmod lime-<OS-Version>-generic.ko "path=<path-to-save>.mem format=lime timeout=0"
 ```
