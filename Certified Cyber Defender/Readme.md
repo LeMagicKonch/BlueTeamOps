@@ -680,6 +680,9 @@ SYSTEM\ControlSet001\Control\TimeZoneInformation
 
 **StartUp and Shutdown Time**
 
+Tool:
+- https://www.nirsoft.net/utils/computer_turned_on_times.html
+
 ```
 System\ControlSet001\Control\Windows
 ```
