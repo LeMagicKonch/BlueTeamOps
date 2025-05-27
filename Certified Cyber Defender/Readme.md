@@ -868,6 +868,225 @@ Jumplist Data Stored Locations:
 
 ![image](https://github.com/user-attachments/assets/21789cf0-a5ed-4c96-bc22-ceb6c07c4345)
 
+#### **USB Devices**
+
+**Registry**
+
+SYSTEM Hive Keys to Investigate:
+
+![image](https://github.com/user-attachments/assets/539dd3cc-a374-4765-b25d-4bac2914e965)
+
+*USB* Key contains info about all USB devices connected to the system 
+
+*USBSTOR* key stores info about USB data drives.
+
+**setupapi.dev.log**
+
+This is a plaintext log file located at *c:\windows\inf\setupapi.dev.log*
+
+Contains information about Plug and Pay devices and driver installation.
+
+Using this log we can identify *the first time a device was connected*.
+
+**Event Logs**
+
+![image](https://github.com/user-attachments/assets/f7b2dcf7-533c-425b-ad71-60d7c8039f7b)
+
+**Determing Users Involved**
+
+We will use the device GUID to determine who accessed USB.
+
+To get the device GUIDs go to:
+
+```
+HKEY_CURRENT\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2
+```
+
+We can also use the below location for user specific objects:
+
+```
+HKEY_CURRENT\Software\Microsoft\Windows\CurrentVersion\Explorer\VolumeInfoCache
+```
+
+**Automation**
+
+Tools:
+- https://github.com/woanware/usbdeviceforensics
+- https://usbdetective.com/
+- USB Forensic Tacker tool
+
+### **Analyzing Installed Applications**
+
+**AppRepository**
+
+Location:
+
+```
+c:\programdata\microsoft\windows\apprepository
+```
+
+We can analyze the *StateRepository-Machine.srd* database file using *DB Browser for SQLite*
+
+**Registry**
+
+Registry Locations:
+
+![image](https://github.com/user-attachments/assets/9513392a-1d98-4ee0-aa9e-7af54a92b20b)
+
+**EventLogs**
+
+Event Codes of Interest:
+
+![image](https://github.com/user-attachments/assets/3ffcb046-9fbf-48e5-87ea-388884878783)
+
+### **Analyzing Execution Activities**
+
+**Services**
+
+Config of Windows services stored at: *c:\windows\system32\config\SYSTEM* under the *CurrentControlSet\Services* key
+
+NOTE:
+- there might be multiple variations of *ControlSet* like *ControlSet002* and *ControlSet003*
+- This is because one acts as the active ControlSet while the others act as backups for a last known good state to revert to
+- To determine which ControlSet is active or backups:
+  - Check the *HKLM\SYSTEM\Select* key and you will see the loaded ControlSet under the key value *current*
+
+Key Event Codes to help create a timeline for services:
+
+![image](https://github.com/user-attachments/assets/be2fbf76-43fc-48ed-89fb-f98649639302)
+
+**Windows Timeline**
+
+Tool:
+- Eric Zimmerman *WxTCMD*
+
+Timeline data stored at:
+
+```
+c:\users\<user>\appdata\local\connecteddevicesplatform\L.<user>\activitiescache.db
+```
+
+**Autorun Applications**
+
+Stored Registry Locations:
+
+![image](https://github.com/user-attachments/assets/fc2d8346-bf71-4fd9-88e0-68061141063a)
+
+**UserAssist Registry Key**
+
+Tool:
+- UserAssist Tool
+
+This key stores info about programs that are frequently run by a specific user, last time programs were executed and how many times.
+
+This key is stored in *NTUSER.dat* registry hive.
+
+```
+# Key location within NTUSER.dat
+SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserAssist
+```
+
+NOTE:
+- UserAssist only records GUI-based applications
+
+**ShimCache aka AppCompatCache**
+
+Tool:
+- Eric Zimmerman AppCompatCacheParser
+
+ShimCache is a feature that allows older apps to run on newer systems.
+
+Find if an application uses ShimCache:
+- right0click file
+- select properties
+- select Compatability Mode
+- Look for following string "Run this program in compatability mode for:"
+
+Registry Location:
+
+```
+HKLM\SYSTEM\CurrentControlSet\Control\SessionManager\AppCompatCache\AppCompatCache
+```
+
+Example:
+
+![image](https://github.com/user-attachments/assets/6dcc230f-ad49-43a3-b891-2056eba92d58)
+
+
+**AmCache.hve Registry Hive**
+
+Tools:
+- Eric Zimmerman AmcacheParser
+
+Stores info about the files that are installed ona system
+
+File Location:
+
+```
+c:\windows\AppCompat\Programs\Amcache.hve
+```
+
+When using *AmcacheParser* tool, one of the most useful files is the *UnassociatedFileEntries*.
+
+This contains a list of installed applications.
+
+**DAM & DAM Registry Key**
+
+BAM is a Windows service that controls the activity of background applications.
+
+Location:
+
+```
+SYSTEM\ControlSet001\Services\bam\State\UserSettings
+```
+
+**Prefetch & SuperFetch**
+
+Prefetch is a component of the Memory Manager that can improve the performance of Windows boot process and reduce time it takes for programs to start.
+
+These files can provide info about programs that were frequently ran on the system.
+
+File Path:
+
+```
+c:\windows\Prefetch
+```
+
+**SRUM (System Resource Usage Monitor)**
+
+Tools:
+- https://ericzimmerman.github.io/#!index.md
+
+Tracks system resource usage
+
+File Path Location:
+
+```
+c:\windows\system32\sru
+```
+
+Before anlaysis we need to check if the *SRUDB.dat* file needs to be repaired:
+
+![image](https://github.com/user-attachments/assets/88ae2847-cee2-4ffc-9874-9f60cee999e2)
+
+Example:
+
+![image](https://github.com/user-attachments/assets/64f86b19-0ab0-416b-a334-3d2514da631c)
+
+**Microsoft Office Alerts**
+
+Event Log File:
+
+```
+OAlerts.evtx
+```
+
+contains text displayed to users in dialogs by Microsoft Office Suite apps
+
+**Scheduled Tasks**
+
+![image](https://github.com/user-attachments/assets/9dcfdb44-2dc3-4644-b5f3-6298c5f1d331)
+
 
 
 
@@ -909,3 +1128,15 @@ Finding MAC Address of Last Connection:
 - find the record with the latest modify timestamp
 - note the domain and find the MAC address in the below location
 - Navigate to *SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged*
+
+### **Program Execution**
+
+Finding how long *telegram.exe* ran:
+- Navigate to *C:\Users\Administrator\NTUSER.dat*
+- Open the *UserAssist* tool and upload the NTUSER.dat file
+  - We chose the NTUSER.dat file in the *Administrator* user because we saw this was the user file location that telgram.exe was running from in the *sysmon logs*
+ 
+Finding Created User:
+- Open RegRipper (rr.exe)
+- Upload the SAM Registry Hive (*c:\windows\system32\SAM*)
+- Look for last created user account
