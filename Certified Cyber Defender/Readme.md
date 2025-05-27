@@ -633,3 +633,53 @@ Exmaple:
 
 ### **Windows**
 
+#### Registry Hives
+
+Resources:
+- https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives
+
+![image](https://github.com/user-attachments/assets/760c7383-6a09-4acb-936c-6ed5e4245f9f)
+
+![image](https://github.com/user-attachments/assets/4a71941b-5915-4f53-a0fd-12f97dd15967)
+
+Transaction Logs:
+
+![image](https://github.com/user-attachments/assets/63f493e4-8288-41f9-a344-819629680ebd)
+
+Remote Registry Analysis:
+
+- Open Regedit
+- Select *Connect Network Registry*
+- Enter IP address of desired device
+- select OK and authenticate
+
+#### Profiling Windows Systems
+
+**Windows Version and Install Date**
+
+```
+SOFTWARE\Microsoft\Windows NT\CurrentVersion
+```
+
+![image](https://github.com/user-attachments/assets/21ef28b8-d888-4f51-a190-d45ddd572d92)
+
+NOTE:
+- in the above picture if we wanted to convert the times, right-click the time and select *Data Interpreter*
+
+**Computer Name**
+
+```
+System\ControlSet001\Control\ComputerName\ComputerName
+```
+
+**Timezone**
+
+```
+SYSTEM\ControlSet001\Control\TimeZoneInformation
+```
+
+**StartUp and Shutdown Time**
+
+```
+System\ControlSet001\Control\Windows
+```
