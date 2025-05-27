@@ -690,6 +690,9 @@ System\ControlSet001\Control\Windows
 
 #### **Network Connections/Devices**
 
+Tool:
+- https://www.nirsoft.net/utils/wifi_history_view.html
+
 **Network Interfaces and Configs**
 
 ```
@@ -707,6 +710,89 @@ SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
 
 SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles
 ```
+
+![image](https://github.com/user-attachments/assets/c6e9a243-fba3-4391-aca3-85196be1ff66)
+
+![image](https://github.com/user-attachments/assets/78e3f2c5-3051-4487-b641-8e34eaf347f9)
+
+**Network Shares**
+
+```
+SYSTEM\ControlSet001\Services\LanmanServer\Shares
+```
+
+#### **User Information**
+
+**Security Account Manager (SAM)**
+
+```
+# SAM File Location
+C:\Windows\System32\config\SAM
+
+# Backup SAM File Location
+C:\Windows\Repair\SAM
+```
+
+We can use *RegRipper* to analyze the SAM file!
+
+**Tracking User Activity with Security.evtx**
+
+![image](https://github.com/user-attachments/assets/84834f88-98ec-47b0-82af-9e6cd4e8d63e)
+
+#### **File and Folder Activity**
+
+**$MFT**
+
+Tools:
+- RStudio --> https://www.r-studio.com/
+- MFTEcmd / MFTEexplorer --> https://github.com/EricZimmerman/MFTECmd
+
+Stored in the root of NTFS partition which we can find in FTK Imager.
+
+**$UsnJrnl**
+
+Provides high-level monitoring of file and folder changes (creation, deletion, renaming)
+
+Located at *$Extend\$USJrnl*
+
+Contains two other data streams: 
+- $J where most important data resides
+- $Max
+
+Example:
+
+![image](https://github.com/user-attachments/assets/e83f0449-7410-4a13-936d-22bf597de7cd)
+
+**$LogFile**
+
+Tool:
+- https://sites.google.com/site/forensicnote/ntfs-log-tracker
+
+Monitors changes to file/folders, but unlike $Usnjrnl, it stores detailed low-level changes to provide more resilience to the file system
+
+Located in the volume root.
+
+Example:
+
+![image](https://github.com/user-attachments/assets/630287c7-48dc-499b-b604-9b48016761d6)
+
+**$I30 INDX**
+
+Tool:
+- https://github.com/harelsegev/INDXRipper
+
+Tracks which files are in which directories.
+
+May keep track of deleted files even if securely wiped so this is very useful in proving the existance of a particular file even if it doesn't exist anymore.
+
+Example:
+
+![image](https://github.com/user-attachments/assets/26740e65-91b1-4498-91c2-13ad3211f136)
+
+
+
+
+
 
 ## **Lab**
 
