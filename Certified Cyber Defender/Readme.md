@@ -18,7 +18,8 @@
     * [DNS Analysis](#dns-analysis)
     * [Digital Forensics: Network Lab 2](#Digital-Forensics:-Network-Lab-2)
  * [Digital Forensics](#digital-forensics)
-   * [DumpIt Collection](#dumpit-collection)
+   * [Memory Collection](#memory-collection)
+   * [Disk Images](#disk-images)
 <!--te-->
 
 ## **Suricata**
@@ -528,6 +529,7 @@ Tool Overview:
 
 ![image](https://github.com/user-attachments/assets/f6d6983e-cbeb-4bcb-9ce7-d9a6c85803ce)
 
+### **Memory Collection**
 
 ### **Live Windows Collection**
 
@@ -588,6 +590,8 @@ sudo insmod lime-<OS-Version>-generic.ko "path=<path-to-save>.mem format=lime ti
 sudo ./CyLR
 ```
 
+## **Disk Images**
+
 ### **Windows Disk Collection**
 
 References:
@@ -612,3 +616,10 @@ FTK Imager Output Types:
   - Most Commonly Used (Use this one)
   - Also stores metadata
 - AFF
+
+### **Linux Disk Collection**
+
+Exmaple:
+
+![image](https://github.com/user-attachments/assets/59967c9d-de74-4178-9b78-364f8057c97e)
+
