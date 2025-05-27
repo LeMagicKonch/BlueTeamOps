@@ -690,6 +690,17 @@ System\ControlSet001\Control\Windows
 
 #### **Network Connections/Devices**
 
+Network Interfaces and Configs
+
+```
+SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkCards
+
+SYSTEM\ControlSet001\Services\Tcpip\Parameters\Interfaces
+```
+
+![image](https://github.com/user-attachments/assets/d28d4b93-e034-4e99-b812-33506b98fdf1)
+
+
 ## **Lab**
 
 ### **Profiling System**
@@ -713,3 +724,5 @@ Finding Last Shutdown Time:
 - Right Click the shutdown time
 - select *Data Interpreter*
 
+Finding IP Address of System:
+- Navigate to *SYSTEM\ControlSet001\Services\Tcpip\Parameters\Interfaces*
