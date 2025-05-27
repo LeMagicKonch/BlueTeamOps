@@ -20,6 +20,8 @@
  * [Digital Forensics](#digital-forensics)
    * [Memory Collection](#memory-collection)
    * [Disk Images](#disk-images)
+ * [Disk Forensics](#disk-forensics)
+   * [Windows](#windows)
 <!--te-->
 
 ## **Suricata**
@@ -625,4 +627,9 @@ FTK Imager Output Types:
 Exmaple:
 
 ![image](https://github.com/user-attachments/assets/59967c9d-de74-4178-9b78-364f8057c97e)
+
+
+## **Disk Forensics**
+
+### **Windows**
 
