@@ -690,7 +690,7 @@ System\ControlSet001\Control\Windows
 
 #### **Network Connections/Devices**
 
-Network Interfaces and Configs
+**Network Interfaces and Configs**
 
 ```
 SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkCards
@@ -700,6 +700,13 @@ SYSTEM\ControlSet001\Services\Tcpip\Parameters\Interfaces
 
 ![image](https://github.com/user-attachments/assets/d28d4b93-e034-4e99-b812-33506b98fdf1)
 
+**Connection History**
+
+```
+SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
+
+SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles
+```
 
 ## **Lab**
 
@@ -726,3 +733,11 @@ Finding Last Shutdown Time:
 
 Finding IP Address of System:
 - Navigate to *SYSTEM\ControlSet001\Services\Tcpip\Parameters\Interfaces*
+
+### **Network Traffic**
+
+Finding MAC Address of Last Connection:
+- Navigate to *SOFTWARE\Micorsoft\Widnows NT\CurrentVersion\NetworkList\Profiles*
+- find the record with the latest modify timestamp
+- note the domain and find the MAC address in the below location
+- Navigate to *SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged*
