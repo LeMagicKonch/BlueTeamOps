@@ -577,8 +577,38 @@ C:\Windows\memory.dmp
 
 ### **Linux Memory Collection**
 
+References:
+- https://github.com/orlikoski/CyLR
+
 ```
 uname -a
 
 sudo insmod lime-<OS-Version>-generic.ko "path=<path-to-save>.mem format=lime timeout=0"
+
+sudo ./CyLR
 ```
+
+### **Windows Disk Collection**
+
+References:
+- Write Block Device --> https://www.youtube.com/watch?v=7eT8KSHMGFw&themeRefresh=1
+
+#### **FTK Imager**
+
+Steps:
+1. Create Disk Image
+2. Choose Physical Drive
+3. Click Add
+4. Select Output Type (See Below for More Details)
+5. Enter Evidence Info
+6. Finish
+
+FTK Imager Output Types:
+- RAW
+  - Bit-by-bit copy 
+- SMART
+  - not commonly used
+- E01
+  - Most Commonly Used (Use this one)
+  - Also stores metadata
+- AFF
