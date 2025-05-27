@@ -686,3 +686,6 @@ Tool:
 ```
 System\ControlSet001\Control\Windows
 ```
+
+#### **Network Connections/Devices**
+
