@@ -822,6 +822,51 @@ Common MRU Keys:
 
 ![image](https://github.com/user-attachments/assets/a78d4f4a-d9bc-457a-9d4c-7494d381ee57)
 
+**Shellbags**
+
+Tool:
+- https://ericzimmerman.github.io/#!index.md
+
+Shellbags are two registry sub-keys: *BagMRU* and *Bags*
+
+Stores details about folders the user viewed using *File Explorer*
+
+Location of Shellbag registry hives:
+- c:\users\<user>\NTUSER.dat
+- c:\users\<user>\AppData\Local\Microsoft\Windows\USRCLASS.dat
+
+Shellbag Key Locations:
+
+![image](https://github.com/user-attachments/assets/3641a8fd-ecbb-4111-8d47-240e63956479)
+
+Why use shellbags?
+
+Determine what folders any user viewed and what the contents of each folder was, even if it does not exist anymore
+
+**LNK FIles**
+
+Tool:
+- Eric Zimmerman *LECmd*
+
+LNK files are pointers to open a file or folder.
+
+Valuable Info:
+- original nfile
+- creation date
+- size
+
+Example:
+
+![image](https://github.com/user-attachments/assets/818c7f19-c5cb-4302-ba2c-aa84039ca124)
+
+**JumpLists**
+
+Tool:
+- https://ericzimmerman.github.io/#!index.md
+
+Jumplist Data Stored Locations:
+
+![image](https://github.com/user-attachments/assets/21789cf0-a5ed-4c96-bc22-ceb6c07c4345)
 
 
 
