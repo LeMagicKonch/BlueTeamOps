@@ -22,6 +22,7 @@
    * [Disk Images](#disk-images)
  * [Disk Forensics](#disk-forensics)
    * [Windows](#windows)
+     * [Lab](#lab)
 <!--te-->
 
 ## **Suricata**
@@ -688,4 +689,27 @@ System\ControlSet001\Control\Windows
 ```
 
 #### **Network Connections/Devices**
+
+## **Lab**
+
+### **Profiling System**
+
+Finding the Build Version:
+
+- Open *Registry Explorer*
+- Import Hive *C:\Windows\System32\Config\Software*
+- since this is a *dirty hive* we have to load the associated LOG files when prompted
+- Navigate to *SOFTWARE\Microsoft\Windows NT\CurrentVersion*
+
+Finding the Computer Name:
+- do the same steps above but for the SYSTEM Hive
+- Navigate to *SYSTEM\ControlSet001\Control\ComputerName\ComputerName*
+
+Finding System Timezone:
+- Navigate to *SYSTEM\ControlSet001\Control\TimeZoneInformation*
+
+Finding Last Shutdown Time:
+- Navigate to *SYSTEM\ControlSet001\Control\Windows*
+- Right Click the shutdown time
+- select *Data Interpreter*
 
