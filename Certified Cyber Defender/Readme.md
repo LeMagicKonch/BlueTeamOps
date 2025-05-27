@@ -789,6 +789,43 @@ Example:
 
 ![image](https://github.com/user-attachments/assets/26740e65-91b1-4498-91c2-13ad3211f136)
 
+**Windows Search Database**
+
+Tool:
+- https://github.com/strozfriedberg/sidr
+
+#### **Linking User Actions to Files/Folders**
+
+**Security.evtx**
+
+Enabling monitoring:
+
+![image](https://github.com/user-attachments/assets/21812a4a-495a-4b38-921a-0083f942abdd)
+
+Primary Event Codes:
+
+![image](https://github.com/user-attachments/assets/4f22acd7-80cd-41ce-a147-472ef9d2f38f)
+
+**MRULists**
+
+Useful data in MRULists:
+- list of files and commands each user accessed
+- shows order
+
+NTUSER.DAT Registry Hive:
+
+```
+C:\users\<user>\NTUSER.DAT
+```
+
+Common MRU Keys:
+
+![image](https://github.com/user-attachments/assets/a78d4f4a-d9bc-457a-9d4c-7494d381ee57)
+
+
+
+
+
 
 
 
