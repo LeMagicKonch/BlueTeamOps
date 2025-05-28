@@ -1135,6 +1135,15 @@ Finding how long *telegram.exe* ran:
 - Navigate to *C:\Users\Administrator\NTUSER.dat*
 - Open the *UserAssist* tool and upload the NTUSER.dat file
   - We chose the NTUSER.dat file in the *Administrator* user because we saw this was the user file location that telgram.exe was running from in the *sysmon logs*
+
+### **Finding Malicious Service Creation**
+
+- Open *Registry Explorer* and add the following Hive to analyze: *c:\windows\system32\config\SYSTEM*
+- Navigate to *SYSTEM\ControlSet001\Services*
+- Export the table of services
+- Look for Suspicious Service Binary Paths
+
+
  
 Finding Created User:
 - Open RegRipper (rr.exe)
