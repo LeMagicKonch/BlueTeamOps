@@ -1135,6 +1135,11 @@ Finding how long *telegram.exe* ran:
 - Navigate to *C:\Users\Administrator\NTUSER.dat*
 - Open the *UserAssist* tool and upload the NTUSER.dat file
   - We chose the NTUSER.dat file in the *Administrator* user because we saw this was the user file location that telgram.exe was running from in the *sysmon logs*
+ 
+### **Finding Created User**
+- Open RegRipper (rr.exe)
+- Upload the SAM Registry Hive (*c:\windows\system32\SAM*)
+- Look for last created user account
 
 ### **Finding Malicious Service Creation**
 
@@ -1143,9 +1148,15 @@ Finding how long *telegram.exe* ran:
 - Export the table of services
 - Look for Suspicious Service Binary Paths
 
+### **Finding Original FileName**
 
- 
-Finding Created User:
-- Open RegRipper (rr.exe)
-- Upload the SAM Registry Hive (*c:\windows\system32\SAM*)
-- Look for last created user account
+- Open *NTFS Log Tracker* tool
+- Add $LogFile Path --> *c\$LogFile*
+- Add $UsnJrnl:$J Path --> *c\$Extend\$J*
+- Add $MFT Path --> *c\$MFT*
+- Click *Parse*
+- Open output .db file in *DB Browser for SQLite* tool
+- Go to "Browse Data" --> UsnJrnl
+- Filters:
+  - FullPath --> *Administrator\\Downloads*
+  - Event --> *Renamed*
