@@ -1162,4 +1162,10 @@ Finding how long *telegram.exe* ran:
 - Import SYSTEM Registry Hive at *c:\windows\system32\config\SYSTEM*
 - Go to following reg key/value : *SYSTEM\ControlSet001\Enum\USBSTOR*
 
-### ****
+### **Identify USB Serial Number**
+
+- Open *Registry Explorer* and import the SYSTEM Registry Hive as shown above
+- In artifacts, open *C:\windows\inf\setupapi.dev.log*
+- find the name of the device plugged in at the suspected time
+
+
