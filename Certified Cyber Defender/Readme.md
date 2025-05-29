@@ -1168,4 +1168,19 @@ Finding how long *telegram.exe* ran:
 - In artifacts, open *C:\windows\inf\setupapi.dev.log*
 - find the name of the device plugged in at the suspected time
 
+### **Identify the Vendor ID of USB**
 
+- Open *Registry Explorer* and import the following Registry Hive: *c:\windows\system32\config\SYSTEM*
+- Go to : *SYSTEM\ControlSet001\Enum\USB*
+- The Vendor ID is in the *Key Name* column : *VID_<this is the Vendor ID>&*
+
+### **Identify the Drive Label of USB**
+
+- Open *Registry Explorer* and import the following Registry Hive: *c:\windows\system32\config\SYSTEM*
+- Go to : *SYSTEM\ControlSet001\Enum\SWD\WPDBUSENUM*
+- The Drive Label is the *Friendly Name* columm
+
+### **Identify the Drive Letter Assigned to USB**
+
+- Open *Registry Explorer* and import the following Registry Hive: *c:\windows\system32\config\SYSTEM*
+- Go to : *SYSTEM\MountedDevices*
