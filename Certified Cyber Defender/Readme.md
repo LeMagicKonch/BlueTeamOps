@@ -22,7 +22,8 @@
    * [Disk Images](#disk-images)
  * [Disk Forensics](#disk-forensics)
    * [Windows](#windows)
-     * [Lab](#lab)
+     * [Disk Forensics Lab](#disk-forensics-lab)
+     * [USB Lab](#usb-lab)
 <!--te-->
 
 ## **Suricata**
@@ -1087,15 +1088,7 @@ contains text displayed to users in dialogs by Microsoft Office Suite apps
 
 ![image](https://github.com/user-attachments/assets/9dcfdb44-2dc3-4644-b5f3-6298c5f1d331)
 
-
-
-
-
-
-
-
-
-## **Lab**
+## **Disk Forensics Lab**
 
 ### **Profiling System**
 
@@ -1160,3 +1153,13 @@ Finding how long *telegram.exe* ran:
 - Filters:
   - FullPath --> *Administrator\\Downloads*
   - Event --> *Renamed*
+
+## **USB Lab**
+
+### **Determine Number of USB Devices**
+
+- Open *Registry Explorer*
+- Import SYSTEM Registry Hive at *c:\windows\system32\config\SYSTEM*
+- Go to following reg key/value : *SYSTEM\ControlSet001\Enum\USBSTOR*
+
+### ****
