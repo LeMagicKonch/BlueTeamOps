@@ -1235,5 +1235,8 @@ We can tackle this problem by using the *psxview* plugin!
 python vol.py -f "C:\Users\Administrator\Desktop\Start Here\Artifacts\memory.dmp" --profile=Win10x64_17763 -g 0xf8034da8a4d8 psxview
 ```
 
+Processes that show *False* under the pslist column are good candidates for further investigation.
+
+For further investigation, note the memory offset of the suspicious process and continue to (#future-module)
 
 
