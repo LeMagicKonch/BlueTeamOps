@@ -24,6 +24,7 @@
    * [Windows](#windows)
      * [Disk Forensics Lab](#disk-forensics-lab)
      * [USB Lab](#usb-lab)
+ * [Memory Forensics](#memory-forensics)
 <!--te-->
 
 ## **Suricata**
@@ -1184,3 +1185,35 @@ Finding how long *telegram.exe* ran:
 
 - Open *Registry Explorer* and import the following Registry Hive: *c:\windows\system32\config\SYSTEM*
 - Go to : *SYSTEM\MountedDevices*
+
+
+# **Memory Forensics**
+
+## **Collecting OS Info**
+
+Before using *volatility* we need to determine the appropriate OS profile:
+
+```
+python vol.py -f "<file-path>.dmp" imageinfo
+```
+
+### **Finding the *KdCopyDataBlock* Address**
+
+The importance of finding this memory address is that it will enable us to greatly increase the spreed at which we can do our analysis since it allows us to directly access key data structures!
+
+```
+python vol.py -f "<file-path>.dmp" --profile=<profile-from-imageinfo> kdbgscan
+```
+
+With the memory address of the *KbCopyDataBlock* we can run commands like so which will result in results faster:
+
+```
+python vol.py -f "<file-path>.dmp" --profile=<profile-from-imageinfo> -g <mem-address-of-KbCopyDataBlock> pslist
+```
+
+## **Process Investigation**
+
+
+
+
+
