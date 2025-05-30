@@ -1296,6 +1296,59 @@ For established connections we can lookup the IP reputation:
 
 ## **Detecting Persistence**
 
+### **Analyzing Registry Keys**
+
+We can analyze specific Registry locations with the *printkey* plugin
+
+```
+# prinkey plugin example
+python vol.py -f "C:\Users\Administrator\Desktop\Start Here\Artifacts\memory.dmp" --profile=Win10x64_17763 -g 0xf8034da8a4d8 printkey -K software\microsoft\windows\currentversion\run
+```
+
+We can also use a third party plugin called *winesap* which will help automate checking registry keys:
+
+```
+# winesap plugin example
+
+```
+
+Registry Keys of Interest:
+
+![image](https://github.com/user-attachments/assets/61d2d2ed-3996-460b-a2f9-3eb172e01e25)
+
+
+## **Memory Forensics Lab**
+
+### **Finding the Timestamp of Image Taken**
+
+```
+python vol.py -f <file-path>.raw imageinfo
+```
+
+While we are here we will also grab the recommended OS profile and then we will run the below command to find the *KbCopyDataBlock*:
+
+```
+python vol.py -f "<file-path>.dmp" --profile=<profile-from-imageinfo> kdbgscan
+```
+
+### **Extracting EVTX Files from Image**
+
+First, lets make sure we can find .evtx files in the image:
+
+```
+python vol.py -f "C:\Users\Administrator\Desktop\Memory Forensics\Server.raw" --profile=Win10x64_17763 filescan | findstr /i "\.evtx"
+```
+
+Now we can extract all evtx logs:
+
+```
+python vol.py -f "C:\Users\Administrator\Desktop\Memory Forensics\Server.raw" --profile=Win10x64_17763 dumpfiles --regex=.evtx$ --name --ignore-case --dump-dir="C:\Users\Administrator\Desktop\Memory Forensics\EVTX_Logs"
+```
+
+We can now find the logs we want to look at, change the extension to evtx and open in evtx viewer!
+
+
+
 
 
 
