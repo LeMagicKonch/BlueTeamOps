@@ -1239,4 +1239,64 @@ Processes that show *False* under the pslist column are good candidates for furt
 
 For further investigation, note the memory offset of the suspicious process and continue to (#future-module)
 
+### **Examining Process Details**
+
+We can use *psinfo* plugin to get more details about a specific process once we have a memory offset.
+
+```
+# psinfo example
+python vol.py -f "C:\Users\Administrator\Desktop\Start Here\Artifacts\memory.dmp" --profile=Win10x64_17763 -g 0xf8034da8a4d8 psinfo -o 0x00000001020170c0
+```
+
+We can also review related process handles for a specific process ID:
+
+```
+# Getting Process Handles Example
+python vol.py -f "C:\Users\Administrator\Desktop\Start Here\Artifacts\memory.dmp" --profile=Win10x64_17763 -g 0xf8034da8a4d8 handles -p 5104 -t process
+```
+
+### **Enumerating Process Permissions**
+
+References:
+- https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-identifiers#well-known-sids
+- https://woshub.com/runas-localsystem-account-windows/
+
+Important Well Known SIDs:
+
+![image](https://github.com/user-attachments/assets/381a4424-4635-4039-8493-6a8ac9f46ca7)
+
+```
+# getsids plugin example
+python vol.py -f "C:\Users\Administrator\Desktop\Start Here\Artifacts\memory.dmp" --profile=Win10x64_17763 -g 0xf8034da8a4d8 getsids -o 0x0000000030584080
+```
+
+## **Network Connections**
+
+Windows OS uses *Pool Tags* to tag memory objects to descern memory allocations.
+
+Popular *Pool Tags*:
+
+![image](https://github.com/user-attachments/assets/674f9bb9-8fdb-48ef-aa44-62d3d6e5d6ca)
+
+Three different memory structures for network connections:
+
+![image](https://github.com/user-attachments/assets/9b8f506d-181e-4748-8747-868dd447e38f)
+
+We can use the *netscan* plugin to list network connections:
+
+```
+# netscan plugin example
+python vol.py -f "C:\Users\Administrator\Desktop\Start Here\Artifacts\memory.dmp" --profile=Win10x64_17763 -g 0xf8034da8a4d8 netscan
+```
+
+For established connections we can lookup the IP reputation:
+
+- https://talosintelligence.com/reputation_center/
+- https://www.cyren.com/security-center/cyren-ip-reputation-check-gate
+
+## **Detecting Persistence**
+
+
+
+
 
