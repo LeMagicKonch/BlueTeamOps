@@ -1348,6 +1348,11 @@ python vol.py -f "C:\Users\Administrator\Desktop\Memory Forensics\Server.raw" --
 We can now find the logs we want to look at, change the extension to evtx and open in evtx viewer!
 
 
+### **Finding RDP Connection**
+
+To find the IP address of the suspicious RDP connection we will use the *Windows-TerminalServices-LocalSessionManager-Operational*
+
+
 
 
 
