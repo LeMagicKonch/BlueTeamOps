@@ -25,6 +25,7 @@
      * [Disk Forensics Lab](#disk-forensics-lab)
      * [USB Lab](#usb-lab)
  * [Memory Forensics](#memory-forensics)
+   * [Process Investigation](#process-investigation)
 <!--te-->
 
 ## **Suricata**
@@ -1213,7 +1214,26 @@ python vol.py -f "<file-path>.dmp" --profile=<profile-from-imageinfo> -g <mem-ad
 
 ## **Process Investigation**
 
+We can use *pslist* and *pstree* to get an overview on all the running processes at the time the image was taken.
 
+```
+# pslist example
+python vol.py -f "C:\Users\Administrator\Desktop\Start Here\Artifacts\memory.dmp" --profile=Win10x64_17763 -g 0xf8034da8a4d8 pslist
+
+# pstree example
+python vol.py -f "C:\Users\Administrator\Desktop\Start Here\Artifacts\memory.dmp" --profile=Win10x64_17763 -g 0xf8034da8a4d8 pstree -v
+```
+
+### **Hidden Processes**
+
+Attackers try to hide processes so you would not be able to see them in Task Manager which also makes it difficult for plugins like *pslist* and *pstree* to view.
+
+We can tackle this problem by using the *psxview* plugin!
+
+```
+# psxview example
+python vol.py -f "C:\Users\Administrator\Desktop\Start Here\Artifacts\memory.dmp" --profile=Win10x64_17763 -g 0xf8034da8a4d8 psxview
+```
 
 
 
