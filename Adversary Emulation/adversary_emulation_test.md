@@ -21,6 +21,11 @@
 
 For COM Hijacks you need a DLL to point to to execute. I created a DLL that runs *C:\Windows\System32\calc.exe* which you can use during the test and placed it in this GitHub Repo.
 
+### **Enumerating COM Hijack Opportunities with ProcMon**
+
+![image](https://github.com/user-attachments/assets/3d79926f-0854-4130-9dfb-47416b5248d3)
+
+
 ### **Enumerating Scheduled Tasks That Call COM Objects**
 
 ```
