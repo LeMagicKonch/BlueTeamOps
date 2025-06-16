@@ -9,6 +9,7 @@
     * [COM Hijacking](#com-hijacking)
     * [DLL Hijacking](#dll-hijacking)
   * [Privilege Escalation](#privilege-escalation)
+    * [Unquoted Service Path](#unquoted-service-path)
   * [Lateral Movement](#lateral-movement)
   * [Misc](#misc)
 <!--te-->
@@ -68,6 +69,33 @@ Get-Item -Path "HKCU:\Software\Classes\CLSID\{<CLISD-ID>}\InprocServer32"
 Remove-Item "HKCU:\Software\Classes\CLSID\{<CLSID-ID>}" -Recurse
 ```
 
+# **Privilege Escalation**
+
+## **Unquoted Service Path**
+
+### **Enumeration of Unquoted Service Paths**
+
+```
+# Get all Serices
+$services = Get-WmiObject -Class Win32_Service | Select-Object Name, PathName
+
+# Pull out the service executable paths
+$paths = $services.PathName
+
+# Get Paths with Spaces
+$vulnerable_paths = @()
+
+foreach ($path in $paths)
+{
+    $executable = "$($($path -split '\.exe')[0])" + ".exe"
+    if ($executable -contains " " -and -not $executable -contains "`"")
+    {
+        $vulnerable_paths += $executable
+    } 
+}
+
+$vulnerable_paths
+```
 
 # **Misc**
 
