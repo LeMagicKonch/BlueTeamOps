@@ -30,6 +30,7 @@
     * [COM Hijacking](#com-hijacking)
     * [DLL Hijacking](#dll-hijacking)
   * [Credentials](#credentials)
+    * [Scheduled Task Credentials](#scheduled-task-credentials)
     * [Kerberos Tickets](#kerberos-tickets)
       * [Service Accounts](#service-accounts)
   * [Privilege Escalation](#privilege-escalation)
@@ -316,6 +317,13 @@ Remove-Item "HKCU:\Software\Classes\CLSID\{<CLSID-ID>}" -Recurse
 ```
 
 # **Credentials**
+
+## **Scheduled Task Credentials**
+
+```
+# The systemprofile AppData contains credentials for scheduled tasks if present
+ls C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\Credentials
+```
 
 ## **Kerberos Tickets**
 
