@@ -46,6 +46,20 @@ net.exe user /DOMAIN | Select-String -SimpleMatch "admin"
 net.exe user <username> /DOMAIN | FL -Property *
 ```
 
+## **Group Enumeration**
+
+### **Enumerate All Domain Groups**
+
+```
+net.exe groupv /DOMAIN
+```
+
+### **Enumerate Groups with *Admin* in Name**
+
+```
+net.exe group /DOMAIN | Select-String -SimpleMatch "admin"
+```
+
 # **Execution**
 
 ## **PowerShell NET Assembly**
