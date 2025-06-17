@@ -5,7 +5,8 @@
   * [Initial Access](#initial-access)
   * [Host Enumeration](#host-enumeration)
   * [Domain Enumeration](#domain-enumeration)
-  * [Execution](#execution).exe -version 2
+  * [Execution](#execution)
+    * [PowerShell NET Assembly](#powershell-net-assembly)
   * [Persistence](#persistence)
     * [COM Hijacking](#com-hijacking)
     * [DLL Hijacking](#dll-hijacking)
@@ -18,6 +19,17 @@
       * [PowerShell Downgrade](#powershell-downgrade)
       * [AMSI Bypass](#amsi-bypass)
 <!--te-->
+
+# **Execution**
+
+## **PowerShell NET Assembly**
+
+### **Execute *calc.exe* Using NET Assembly Method**
+
+```
+# No-download method (calc.exe already exists on system)
+[System.Diagnostics.Process]::Start("calc.exe")
+```
 
 # **Persistence**
 
@@ -117,4 +129,12 @@ powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden $ErrorActionP
 ```
 # Downgrade PowerShell to Version 2 which has less protections
 powershell -version 2
+```
+
+### **Constrained Language Mode**
+
+#### **Detecting Constrained Language Mode**
+
+```
+
 ```
