@@ -52,8 +52,8 @@
 # whoami is commonly used to check current user context
 whoami
 
-# Can also use this command in command prompt since whoami might trigger alerts
-set u
+# Can also use this command since whoami might trigger alerts
+cmd.exe /c "set u"
 ```
 
 # **Domain Enumeration**
