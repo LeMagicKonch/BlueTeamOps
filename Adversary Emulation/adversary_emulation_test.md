@@ -124,6 +124,12 @@ This is another method to find Admin Accounts
 (([ADSISearcher]"(AdminCount=1)").FindAll()).Properties.samaccountname
 ```
 
+This is another method to find Admin Accounts
+
+```
+(([ADSISearcher]"(AdminCount=1)").FindAll()).Properties.samaccountname
+```
+
 ### **Enumerate A Specific Admin User**
 
 ```
