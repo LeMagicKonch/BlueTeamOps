@@ -17,6 +17,7 @@
   * [Misc](#misc)
     * [PowerShell](#powershell)
       * [PowerShell Downgrade](#powershell-downgrade)
+      * [Constrained Language Mode](#constrained-language-mode)
       * [AMSI Bypass](#amsi-bypass)
 <!--te-->
 
