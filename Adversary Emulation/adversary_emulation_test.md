@@ -64,6 +64,9 @@ whoami
 
 # Can also use this command since whoami might trigger alerts
 cmd.exe /c "set u"
+
+# This will give more detailed information on the user including applied GPOs and Groups
+gpresult.exe /r
 ```
 
 ## **Enumerate Application Control**
