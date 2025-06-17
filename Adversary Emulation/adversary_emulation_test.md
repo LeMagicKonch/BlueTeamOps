@@ -11,6 +11,8 @@
       * [Enumerate Domain Admins](#enumerate-domain-admins)
       * [Enumerate Enterprise Admins](#enumerate-enterprise-admins)
       * [Enumerate Schema Admins](#enumerate-schema-admins)
+    * [Service Account Enumeration](#service-account-enumeration)
+      * [Find All Service Accounts and Their SPNs](#find-all-service-accounts-and-their-spns)
     * [Group Enumeration](#group-enumeration)
     * [Computer Enumeration](#computer-enumeration)
       * [Server Enumeration](#server-enumeration)
@@ -89,6 +91,32 @@ net.exe group "Enterprise Admins" /DOMAIN | FL -property *
 
 ```
 net.exe group "Schema Admins" /DOMAIN | FL -property *
+```
+
+## **Service Account Enumeration**
+
+### **Find All Service Acocunts and Their SPNs**
+
+```
+$searcher = New-Object DirectoryServices.DirectorySearcher
+$searcher.SearchRoot = [ADSI]"LDAP://DC=<domain>,DC=<domain>"
+$searcher.Filter = "(&(objectCategory=person)(objectClass=user)(servicePrincipalName=*)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))"
+
+$searcher.PropertiesToLoad.Add("samaccountname") | Out-Null
+$searcher.PropertiesToLoad.Add("servicePrincipalName") | Out-Null
+
+$results = $searcher.FindAll()
+
+foreach ($result in $results)
+{
+ $account = $result.Properties["samaccountname"]
+ $spns = $result.Properties["servicePrincipalName"]
+ Write-Host "Account : $($account)"
+ foreach ($spn in $spns)
+ {
+  Write-Host "SPN : $($spn)"
+ }
+}
 ```
 
 ## **Computer Enumeration**
