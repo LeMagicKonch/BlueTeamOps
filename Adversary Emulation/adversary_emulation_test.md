@@ -140,6 +140,14 @@ $searcher.FindAll() | ForEach-Object { $_.Properties.distinguishedname }
 
 ### **Find All Trusts**
 
+Method 1
+
+```
+nltest.exe /domain_trusts
+```
+
+Method 2
+
 ```
 $domain = System.DirectoryServices.DirectoryEntry("LDAP://CN=System,DC=<domain>,DC=<domain>")
 
