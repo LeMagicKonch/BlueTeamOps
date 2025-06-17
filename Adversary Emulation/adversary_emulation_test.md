@@ -4,6 +4,7 @@
 <!--ts-->
   * [Initial Access](#initial-access)
   * [Host Enumeration](#host-enumeration)
+    * [Check for Application Control](#check-for-application-control)
   * [Domain Enumeration](#domain-enumeration)
     * [User Enumeration](#user-enumeration)
       * [All User Accounts with Admin in Name](#all-user-accounts-with-admin-in-name)
