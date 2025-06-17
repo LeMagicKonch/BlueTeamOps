@@ -7,6 +7,9 @@
   * [Domain Enumeration](#domain-enumeration)
     * [User Enumeration](#user-enumeration)
       * [All User Accounts with Admin in Name](#all-user-accounts-with-admin-in-name)
+      * [Enumerate Domain Admins](#enumerate-domain-admins)
+      * [Enumerate Enterprise Admins](#enumerate-enterprise-admins)
+      * [Enumerate Schema Admins](#enumerate-schema-admins)
     * [Group Enumeration](#group-enumeration)
     * [Computer Enumeration](#computer-enumeration)
       * [Server Enumeration](#server-enumeration)
@@ -66,6 +69,18 @@ net.exe group /DOMAIN | Select-String -SimpleMatch "admin"
 
 ```
 net.exe group "Domain Admins" /DOMAIN | FL -property *
+```
+
+### **Enumerate Enterprise Admins**
+
+```
+net.exe group "Enterprise Admins" /DOMAIN | FL -property *
+```
+
+### **Enumerate Schema Admins**
+
+```
+net.exe group "Schema Admins" /DOMAIN | FL -property *
 ```
 
 ## **Computer Enumeration**
