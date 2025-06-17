@@ -413,3 +413,16 @@ Run the following command:
 ```
 python --version
 ```
+
+If python exists you can continue this path...
+
+### **Start HTTP Server for Exfil**
+
+```
+# Start Simple HTTP Server
+python -m http.server 4444
+
+# If blocked by FireWall Rules create new Firewall Rule to allow inbound traffic on port 4444
+# NOTE: You will need Administrative powershell session
+New-NetFirewallRule -Name "Python Test- Delete" -Direction Inbound -LocalPort 4444 -Protocol TCP -Action Allow -Profile Any
+```
