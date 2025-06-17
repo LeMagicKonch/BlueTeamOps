@@ -118,6 +118,12 @@ net.exe user /DOMAIN
 net.exe user /DOMAIN | Select-String -SimpleMatch "admin"
 ```
 
+This is another method to find Admin Accounts
+
+```
+(([ADSISearcher]"(AdminCount=1)").FindAll()).Properties.samaccountname
+```
+
 ### **Enumerate A Specific Admin User**
 
 ```
