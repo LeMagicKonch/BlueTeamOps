@@ -25,6 +25,7 @@
     * [Organization Unit Enumeration](#organizational-unit-enumeration)
     * [Domain Trust Enumeration](#domain-trust-enumeration)
     * [Unconstrained Delegation](#unconstrained-delegation)
+    * [Constrained Delegation](#constrained-delegation)
   * [Execution](#execution)
     * [PowerShell NET Assembly](#powershell-net-assembly)
   * [Persistence](#persistence)
@@ -256,6 +257,14 @@ $searcher.FindAll() | ForEach-Object { $_.properties["name"] }
         LastLogon = if ($_.Properties.lastlogon) { [datetime]::FromFileTime($_.Properties.lastlogon[0]) }
         Description = $_.Properties.description
     }
+}
+```
+
+## **Constrained Delegation**
+
+```
+([ADSISearcher]"(msDS-AllowedToDelegateTo=*)").FindAll() | ForEach-Object {
+    $_.Properties.name
 }
 ```
 
