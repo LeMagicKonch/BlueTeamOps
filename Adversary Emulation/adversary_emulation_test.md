@@ -6,7 +6,9 @@
   * [Host Enumeration](#host-enumeration)
     * [Common Initial Scoping Commands](#common-initial-scoping-commands)
     * [Enumerate Application Control](#enumerate-application-control)
-    * [Check Cloud Join](#check-cloud-join)
+    * [Check Cloud Information](#check-cloud-information)
+      * [Device Join Type](#device-join-type)
+      * [Enumerate Cloud Accounts](#enumerate-cloud-accounts)
   * [Domain Enumeration](#domain-enumeration)
     * [User Enumeration](#user-enumeration)
       * [All User Accounts with Admin in Name](#all-user-accounts-with-admin-in-name)
@@ -80,10 +82,18 @@ ls C:\Windows\System32\CodeIntegrity | Select-String -SimpleMatch ".bin.p7b"
 
 If this file exists attackers might try to exfil this file and use the tool *CIPolicyParser.ps1* to read the actual rules and find allowed executables in the environment
 
-## **Check Cloud Join**
+## **Check Cloud Information**
+
+### **Device Join Type**
 
 ```
 dsregcmd.exe /status
+```
+
+### **Enumerate Cloud Accounts**
+
+```
+dsregcmd.exe /listaccounts
 ```
 
 # **Domain Enumeration**
