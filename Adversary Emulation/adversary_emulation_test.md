@@ -8,6 +8,8 @@
     * [User Enumeration](#user-enumeration)
       * [All User Accounts with Admin in Name](#all-user-accounts-with-admin-in-name)
     * [Group Enumeration](#group-enumeration)
+    * [Computer Enumeration](#computer-enumeration)
+      * [Server Enumeration](#server-enumeration)
   * [Execution](#execution)
     * [PowerShell NET Assembly](#powershell-net-assembly)
   * [Persistence](#persistence)
@@ -64,6 +66,18 @@ net.exe group /DOMAIN | Select-String -SimpleMatch "admin"
 
 ```
 net.exe group "Domain Admins" /DOMAIN | FL -property *
+```
+
+## **Computer Enumeration**
+
+### **Server Enumeration**
+
+```
+# Establish the LDAP filter
+$searcher = [ADSISearcher]"(&(objectClass=computer)(operatingsystem=Windows Server*))"
+
+# Execute Search
+$searcher.FindAll() | ForEach-Object { $_.Properties.Name }
 ```
 
 # **Execution**
