@@ -17,6 +17,7 @@
       * [Certificate Authority Enumeration](#certificate-authority-enumeration)
     * [GPO Enumeration](#gpo-enumeration)
     * [Organization Unit Enumeration](#organizational-unit-enumeration)
+    * [Domain Trust Enumeration](#domain-trust-enumeration)
   * [Execution](#execution)
     * [PowerShell NET Assembly](#powershell-net-assembly)
   * [Persistence](#persistence)
@@ -133,6 +134,20 @@ $searcher = New-Object DirectoryServices.DirectorySearcher
 $searcher.Filter = "(objectCategory=organizationUnit)"
 $searcher.SearchRoot = "LDAP://DC=<domain>,DC=<domain>"
 $searcher.FindAll() | ForEach-Object { $_.Properties.distinguishedname }
+```
+
+## **Domain Trust Enumeration**
+
+### **Find All Trusts**
+
+```
+$domain = System.DirectoryServices.DirectoryEntry("LDAP://CN=System,DC=<domain>,DC=<domain>")
+
+$searcher = System.DirectoryServices.DirectorySearcher($domain)
+
+$searcher.Filter = "(objectClass-trustedDomain)"
+
+$searcher.FindAll() | ForEach-Object { $_.properties["name"] }
 ```
 
 # **Execution**
