@@ -24,6 +24,7 @@
     * [GPO Enumeration](#gpo-enumeration)
     * [Organization Unit Enumeration](#organizational-unit-enumeration)
     * [Domain Trust Enumeration](#domain-trust-enumeration)
+    * [Unconstrained Delegation](#unconstrained-delegation)
   * [Execution](#execution)
     * [PowerShell NET Assembly](#powershell-net-assembly)
   * [Persistence](#persistence)
@@ -242,6 +243,20 @@ $searcher = System.DirectoryServices.DirectorySearcher($domain)
 $searcher.Filter = "(objectClass-trustedDomain)"
 
 $searcher.FindAll() | ForEach-Object { $_.properties["name"] }
+```
+
+## **Unconstrained Delegation**
+
+```
+([ADSISearcher]"(userAccountControl:1.2.840.113556.1.4.803:=524288)").FindAll() | ForEach-Object {
+    [PSCustomObject]@{
+        ComputerName = $_.Properties.name
+        DNSHostname = $_.Properties.dnshostname
+        OS = $_.Properties.operatingsystem
+        LastLogon = if ($_.Properties.lastlogon) { [datetime]::FromFileTime($_.Properties.lastlogon[0]) }
+        Description = $_.Properties.description
+    }
+}
 ```
 
 # **Execution**
