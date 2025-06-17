@@ -41,6 +41,8 @@
       * [PowerShell Downgrade](#powershell-downgrade)
       * [Constrained Language Mode](#constrained-language-mode)
       * [AMSI Bypass](#amsi-bypass)
+    * [Python](#python)
+      * [Check if Python is Installed](#check-if-python-is-installed)
 <!--te-->
 
 # **Host Enumeration**
@@ -402,4 +404,12 @@ Run the following command:
 # There is a bypass where if the string *System32* is in the path of the script it will gain FullLanguag Mode
 
 .\test.ps1; mv .\test.ps1 system32.ps1; .\system32.ps1
+```
+
+## **Python**
+
+### **Check If Python is Installed**
+
+```
+python --version
 ```
