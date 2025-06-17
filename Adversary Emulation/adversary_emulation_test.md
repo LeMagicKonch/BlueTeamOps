@@ -16,6 +16,7 @@
       * [Server Enumeration](#server-enumeration)
       * [Certificate Authority Enumeration](#certificate-authority-enumeration)
     * [GPO Enumeration](#gpo-enumeration)
+    * [Organization Unit Enumeration](#organizational-unit-enumeration)
   * [Execution](#execution)
     * [PowerShell NET Assembly](#powershell-net-assembly)
   * [Persistence](#persistence)
@@ -120,6 +121,15 @@ certutil.exe -config - -ping
 
 ```
 Get-ChildItem -Path "\\<domain>\SYSVOL\<domain>\Policies" -Recurse -Filter *.xml -ErrorAction SilentlyContinue
+```
+
+## **Organization Unit Enumeration**
+
+```
+$searcher = New-Object DirectoryServices.DirectorySearcher
+$searcher.Filter = "(objectCategory=organizationUnit)"
+$searcher.SearchRoot = "LDAP://DC=<domain>,DC=<domain>"
+$searcher.FindAll() | ForEach-Object { $_.Properties.distinguishedname }
 ```
 
 # **Execution**
