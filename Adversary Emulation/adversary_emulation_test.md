@@ -13,6 +13,7 @@
     * [Group Enumeration](#group-enumeration)
     * [Computer Enumeration](#computer-enumeration)
       * [Server Enumeration](#server-enumeration)
+    * [GPO Enumeration](#gpo-enumeration)
   * [Execution](#execution)
     * [PowerShell NET Assembly](#powershell-net-assembly)
   * [Persistence](#persistence)
@@ -99,6 +100,14 @@ $searcher = [ADSISearcher]"(&(objectClass=computer)(operatingsystem=Windows Serv
 
 # Execute Search
 $searcher.FindAll() | ForEach-Object { $_.Properties.Name }
+```
+
+## **GPO Enumeration**
+
+### **Find all XML files in GPOs**
+
+```
+Get-ChildItem -Path "\\<domain>\SYSVOL\<domain>\Policies" -Recurse -Filter *.xml -ErrorAction SilentlyContinue
 ```
 
 # **Execution**
