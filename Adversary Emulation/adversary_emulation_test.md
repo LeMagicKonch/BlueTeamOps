@@ -60,6 +60,12 @@ net.exe groupv /DOMAIN
 net.exe group /DOMAIN | Select-String -SimpleMatch "admin"
 ```
 
+### **Enumerate Domain Admins**
+
+```
+net.exe group "Domain Admins" /DOMAIN | FL -property *
+```
+
 # **Execution**
 
 ## **PowerShell NET Assembly**
