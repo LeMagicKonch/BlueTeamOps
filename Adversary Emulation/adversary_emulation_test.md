@@ -85,6 +85,12 @@ net.exe group "Schema Admins" /DOMAIN | FL -property *
 
 ## **Computer Enumeration**
 
+### **Enumerate Domain Controllers**
+
+```
+nltest.exe /dclist:<domain>
+```
+
 ### **Server Enumeration**
 
 ```
