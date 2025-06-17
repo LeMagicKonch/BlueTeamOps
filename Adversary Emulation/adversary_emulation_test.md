@@ -42,6 +42,20 @@
       * [AMSI Bypass](#amsi-bypass)
 <!--te-->
 
+# **Host Enumeration**
+
+## **Common Initial Scoping Commands**
+
+### **Current User**
+
+```
+# whoami is commonly used to check current user context
+whoami
+
+# Can also use this command in command prompt since whoami might trigger alerts
+set u
+```
+
 # **Domain Enumeration**
 
 ## **User Enumeration**
