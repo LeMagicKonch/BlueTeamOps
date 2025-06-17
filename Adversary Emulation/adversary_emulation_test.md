@@ -14,6 +14,7 @@
     * [Group Enumeration](#group-enumeration)
     * [Computer Enumeration](#computer-enumeration)
       * [Server Enumeration](#server-enumeration)
+      * [Certificate Authority Enumeration](#certificate-authority-enumeration)
     * [GPO Enumeration](#gpo-enumeration)
   * [Execution](#execution)
     * [PowerShell NET Assembly](#powershell-net-assembly)
@@ -101,6 +102,16 @@ $searcher = [ADSISearcher]"(&(objectClass=computer)(operatingsystem=Windows Serv
 
 # Execute Search
 $searcher.FindAll() | ForEach-Object { $_.Properties.Name }
+```
+
+### **Certificate Authority Enumeration**
+
+```
+# Using certutil
+certutil.exe -config - -ping
+
+# LDAP query
+
 ```
 
 ## **GPO Enumeration**
