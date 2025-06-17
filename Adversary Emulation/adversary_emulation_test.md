@@ -43,6 +43,7 @@
       * [AMSI Bypass](#amsi-bypass)
     * [Python](#python)
       * [Check if Python is Installed](#check-if-python-is-installed)
+      * [Start HTTP Server for Exfil](#start-http-server-for-exfil)
 <!--te-->
 
 # **Host Enumeration**
@@ -425,4 +426,7 @@ python -m http.server 4444
 # If blocked by FireWall Rules create new Firewall Rule to allow inbound traffic on port 4444
 # NOTE: You will need Administrative powershell session
 New-NetFirewallRule -Name "Python Test- Delete" -Direction Inbound -LocalPort 4444 -Protocol TCP -Action Allow -Profile Any
+
+# Clean-Up FireWall Rule
+Remove-NetFirewallRule -DisplayName "<displayName>"
 ```
