@@ -21,6 +21,28 @@
       * [AMSI Bypass](#amsi-bypass)
 <!--te-->
 
+# **Domain Enumeration**
+
+## **User Enumeration**
+
+### **Get All Domain Users**
+
+```
+net.exe user /DOMAIN
+```
+
+### **All User Accounts with Admin in Name**
+
+```
+net.exe user /DOMAIN | Select-String -SimpleMatch "admin"
+```
+
+### **Enumerate A Specific Admin User**
+
+```
+net.exe user <username> /DOMAIN | FL -Property *
+```
+
 # **Execution**
 
 ## **PowerShell NET Assembly**
