@@ -6,6 +6,7 @@
   * [Host Enumeration](#host-enumeration)
     * [Common Initial Scoping Commands](#common-initial-scoping-commands)
       * [Enumerate Antivirus](#enumerate-antivirus)
+      * [VM Detection](#vm-detection)
     * [Enumerate Application Control](#enumerate-application-control)
     * [Enumerate Patches](#enumerate-patches)
       * [Get All HotFix Patches]($get-all-hotfix-patches)
@@ -85,11 +86,17 @@ gpresult.exe /r
 ### **Enumerate Antivirus**
 
 ```
-Method 1:
+# Method 1:
 wmic /namespace:\\root\securitycenter2 path antivirusproduct GET displayname,productState,pathToSignedProductExe
 
-Method 2:
+# Method 2:
 Get-WmiObject -Namespace root\SecurityCenter2 -Class AntiVirusProduct
+```
+
+### **VM Detection**
+
+```
+[Bool](Get-WmiObject -Class Win32_ComputerSystem -Filter "NumberOfLogicalProcessors < 2 OR TotalPhysicalMemory < 2147483648")
 ```
 
 ## **Enumerate Application Control**
