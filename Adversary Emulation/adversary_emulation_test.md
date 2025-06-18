@@ -6,6 +6,9 @@
   * [Host Enumeration](#host-enumeration)
     * [Common Initial Scoping Commands](#common-initial-scoping-commands)
     * [Enumerate Application Control](#enumerate-application-control)
+    * [Enumerate Patches](#enumerate-patches)
+      * [Get All HotFix Patches]($get-all-hotfix-patches)
+      * [Get All KBs](#get-all-kbs)
     * [Check Cloud Information](#check-cloud-information)
       * [Device Join Type](#device-join-type)
       * [Enumerate Cloud Accounts](#enumerate-cloud-accounts)
@@ -105,6 +108,22 @@ dsregcmd.exe /status
 
 ```
 dsregcmd.exe /listaccounts
+```
+
+## **Firewall Enumeration**
+
+### **Get Firewall State**
+
+```
+# This information will show firewalll state
+netsh.exe firewall show state
+```
+
+### **Get Firewall Config**
+
+```
+# This will show more detailed firewall info including logging location
+netsh.exe firewall show config
 ```
 
 # **Network Enumeration**
