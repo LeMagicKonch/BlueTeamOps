@@ -40,6 +40,9 @@
     * [COM Hijacking](#com-hijacking)
     * [DLL Hijacking](#dll-hijacking)
   * [Credentials](#credentials)
+    * [Enumerate Registry for Passwords](#enumerate-registry-for-passwords)
+    * [Enumerate Specific File Names](#enumerate-specific-file-names)
+    * [Enumerate Password KeyWord in Files](#enumerate-password-keyword-in-files)
     * [Scheduled Task Credentials](#scheduled-task-credentials)
     * [Kerberos Tickets](#kerberos-tickets)
       * [Service Accounts](#service-accounts)
@@ -389,6 +392,30 @@ Remove-Item "HKCU:\Software\Classes\CLSID\{<CLSID-ID>}" -Recurse
 ```
 
 # **Credentials**
+
+## **Enumerate Specific FileNames**
+
+```
+# These files have potential to have passwords stored in them
+dir /s *pass* == *cred* == *vnc* == *.config*
+```
+
+## **Enumerate Password Keyword in Files**
+
+```
+# Looks for the keyword of *password* in certain file types
+findstr /si password *.xml *.ini *.txt
+```
+
+## **Enumerate Registry for Passwords**
+
+```
+# Check HKLM
+reg query HKLM /f password /t REG_SZ /s
+
+# Check HKCU
+reg query HKCU /f password /t REG_SZ /s
+```
 
 ## **Scheduled Task Credentials**
 
