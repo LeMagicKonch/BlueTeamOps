@@ -5,6 +5,7 @@
   * [Initial Access](#initial-access)
   * [Host Enumeration](#host-enumeration)
     * [Common Initial Scoping Commands](#common-initial-scoping-commands)
+      * [Enumerate Antivirus](#enumerate-antivirus)
     * [Enumerate Application Control](#enumerate-application-control)
     * [Enumerate Patches](#enumerate-patches)
       * [Get All HotFix Patches]($get-all-hotfix-patches)
@@ -79,6 +80,16 @@ cmd.exe /c "set u"
 
 # This will give more detailed information on the user including applied GPOs and Groups
 gpresult.exe /r
+```
+
+### **Enumerate Antivirus**
+
+```
+Method 1:
+wmic /namespace:\\root\securitycenter2 path antivirusproduct GET displayname,productState,pathToSignedProductExe
+
+Method 2:
+Get-WmiObject -Namespace root\SecurityCenter2 -Class AntiVirusProduct
 ```
 
 ## **Enumerate Application Control**
