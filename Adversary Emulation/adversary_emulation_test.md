@@ -46,6 +46,8 @@
   * [Persistence](#persistence)
     * [COM Hijacking](#com-hijacking)
     * [DLL Hijacking](#dll-hijacking)
+    * [Office Applications](#office-applications)
+      *[Word Office Test Registry Key](#word-office-test-registry-key)
   * [Credentials](#credentials)
     * [Enumerate Registry for Passwords](#enumerate-registry-for-passwords)
     * [Enumerate Specific File Names](#enumerate-specific-file-names)
@@ -455,6 +457,17 @@ Remove-Item "HKCU:\Software\Classes\CLSID\{<CLSID-ID>}" -Recurse
 
 ```
 # TODO
+```
+
+## **Office Applications**
+
+### **Word Office Test Registry Key**
+
+```
+# Once you create this registry key, the DLL will execute whenever Word is started
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Office test\Special\Perf" /t REG_SZ /d <Path To DLL>
+
+# CleanUp
 ```
 
 # **Credentials**
