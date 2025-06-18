@@ -468,6 +468,7 @@ Remove-Item "HKCU:\Software\Classes\CLSID\{<CLSID-ID>}" -Recurse
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Office test\Special\Perf" /t REG_SZ /d <Path To DLL>
 
 # CleanUp
+reg delete "HKEY_CURRENT_USER\Software\Microsoft\Office test\Special\Perf"
 ```
 
 # **Credentials**
