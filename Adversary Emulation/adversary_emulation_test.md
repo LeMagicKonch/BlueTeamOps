@@ -9,6 +9,8 @@
     * [Check Cloud Information](#check-cloud-information)
       * [Device Join Type](#device-join-type)
       * [Enumerate Cloud Accounts](#enumerate-cloud-accounts)
+  * [Network Enumeration](#network-enumeration)
+    * [Arp Scan](#arp-scan)
   * [Domain Enumeration](#domain-enumeration)
     * [User Enumeration](#user-enumeration)
       * [All User Accounts with Admin in Name](#all-user-accounts-with-admin-in-name)
@@ -100,6 +102,15 @@ dsregcmd.exe /status
 
 ```
 dsregcmd.exe /listaccounts
+```
+
+# **Network Enumeration**
+
+## **Arp Scan**
+
+```
+# this will find all hosts that the current device can reachusing arp
+arp -a
 ```
 
 # **Domain Enumeration**
