@@ -4,9 +4,13 @@
 <!--ts-->
   * [Initial Access](#initial-access)
   * [Host Enumeration](#host-enumeration)
-    * [Common Initial Scoping Commands](#common-initial-scoping-commands)
+    * [Situational Awareness](#situational-awareness)
       * [Enumerate Antivirus](#enumerate-antivirus)
       * [VM Detection](#vm-detection)
+      * [PowerShell Logging](#powershell-logging)
+      * [PowerShell Constrained Language Mode](#powershell-constrained-language-mode)
+      * [Detect Sysmon](#detect-sysmon)
+      * [Detect Proxy](#detect-proxy)
     * [Enumerate Application Control](#enumerate-application-control)
     * [Enumerate Patches](#enumerate-patches)
       * [Get All HotFix Patches]($get-all-hotfix-patches)
@@ -38,6 +42,7 @@
     * [Constrained Delegation](#constrained-delegation)
   * [Execution](#execution)
     * [PowerShell NET Assembly](#powershell-net-assembly)
+    * [WMIC Execution](#wmic-execution)
   * [Persistence](#persistence)
     * [COM Hijacking](#com-hijacking)
     * [DLL Hijacking](#dll-hijacking)
@@ -68,7 +73,7 @@
 
 # **Host Enumeration**
 
-## **Common Initial Scoping Commands**
+## **Situational Awareness**
 
 ### **Current User**
 
@@ -99,6 +104,34 @@ Get-WmiObject -Namespace root\SecurityCenter2 -Class AntiVirusProduct
 [Bool](Get-WmiObject -Class Win32_ComputerSystem -Filter "NumberOfLogicalProcessors < 2 OR TotalPhysicalMemory < 2147483648")
 ```
 
+### **PowerShell Logging**
+
+```
+# These Registries will inform us of the level of PowerShell logging
+
+reg query HKLM\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging
+reg query HKLM\Software\Policies\Microsoft\Windows\PowerShell\Transcription
+reg query HKLM\Software\Policies\Microsoft\Windows\PowerShell\ModuleLogging
+```
+
+### **PowerShell Constrained Language Mode**
+
+```
+$ExecutionContext.SessionState.LanguageMode
+```
+
+### **Detect Sysmon**
+
+```
+Get-Process | Where-Object { $_.ProcessName -eq "Sysmon" }
+```
+
+### **Detect Proxy**
+
+```
+netsh winhttp show proxy
+```
+
 ## **Enumerate Application Control**
 
 ### **Check if Application Control is Enforced**
@@ -106,6 +139,9 @@ Get-WmiObject -Namespace root\SecurityCenter2 -Class AntiVirusProduct
 ```
 # If the *UsermodeCodeIntegrityPolicyEnforcementStatus* value is set to *2* then Application Control is enforced
 Get-CimInstance -ClassName Win32_DeviceGuard -Namespace root\Microsoft\Windows\DeviceGuard
+
+# For AppLocker Policies use this
+Get-AppLockerPolicy -Local
 ```
 
 ### **Enumerate WDAC Binary Policy File**
@@ -347,6 +383,17 @@ $searcher.FindAll() | ForEach-Object { $_.properties["name"] }
 ```
 # No-download method (calc.exe already exists on system)
 [System.Diagnostics.Process]::Start("calc.exe")
+```
+
+## **WMIC Execution**
+
+```
+# These are some cool ways to execute programs. ASR rules should block this if on
+
+wmic process call create  "\\?\UNC\127.0.0.1\C$\windows\system32\calc.exe"
+wmic process call create "\\.\GLOBALROOT\??\UNC\127.0.0.1\C$\windows\system32\calc.exe"
+wmic process call create "\\;lanmanredirector\127.0.0.1\C$\windows\system32\calc.exe"
+wmic process call create "\\.\globalroot\osdataroot\windows\notepad.exe"
 ```
 
 # **Persistence**
