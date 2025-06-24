@@ -690,3 +690,10 @@ New-NetFirewallRule -Name "Python Test- Delete" -Direction Inbound -LocalPort 44
 # Clean-Up FireWall Rule
 Remove-NetFirewallRule -DisplayName "<displayName>"
 ```
+
+## **PuTTy**
+
+```
+# Enumerate this registry location for stored credentials
+HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\
+```
