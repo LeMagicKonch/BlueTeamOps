@@ -57,6 +57,7 @@
     * [Kerberos Tickets](#kerberos-tickets)
       * [Service Accounts](#service-accounts)
   * [Privilege Escalation](#privilege-escalation)
+    * [Abusing User Privileges](#abusing-user-privileges)
     * [Unquoted Service Path](#unquoted-service-path)
   * [Post Privilege Escalation](#post-privilege-ascalation)
     * [Adding Local User](#adding-local-user)
@@ -572,6 +573,19 @@ klist purge
 ```
 
 # **Privilege Escalation**
+
+## **Abusing User Privileges**
+
+Resource : https://github.com/gtworek/Priv2Admin
+
+```
+# Enumerate user privileges
+whoami /priv
+
+# Look at resource provided above to exploit privileges
+```
+
+
 
 ## **Unquoted Service Path**
 
