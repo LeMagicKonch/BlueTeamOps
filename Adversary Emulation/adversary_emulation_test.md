@@ -88,6 +88,9 @@ cmd.exe /c "set u"
 
 # This will give more detailed information on the user including applied GPOs and Groups
 gpresult.exe /r
+
+# Enumerate current user's privileges
+whoami /priv
 ```
 
 ### **Enumerate Antivirus**
