@@ -72,6 +72,8 @@
     * [Python](#python)
       * [Check if Python is Installed](#check-if-python-is-installed)
       * [Start HTTP Server for Exfil](#start-http-server-for-exfil)
+    * [Putty](#putty)
+      * []()
 <!--te-->
 
 # **Host Enumeration**
