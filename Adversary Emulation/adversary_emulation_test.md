@@ -398,6 +398,7 @@ $searcher.FindAll() | ForEach-Object { $_.properties["name"] }
 ```
 # These are some cool ways to execute programs. ASR rules should block this if on
 
+wmic.exe /node:127.0.0.1 process call create "C:\Windows\system32\calc.exe"
 wmic process call create  "\\?\UNC\127.0.0.1\C$\windows\system32\calc.exe"
 wmic process call create "\\.\GLOBALROOT\??\UNC\127.0.0.1\C$\windows\system32\calc.exe"
 wmic process call create "\\;lanmanredirector\127.0.0.1\C$\windows\system32\calc.exe"
