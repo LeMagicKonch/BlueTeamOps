@@ -1,8 +1,8 @@
 $taskName = "Print Spooler"
 
-$action = New-ScheduleTaskAction -Execute "PowerShell.exe" -Argument "-NoProfile -w hidden -c 'calc.exe'"
+$action = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-NoProfile -w hidden -c start-process calc.exe"
 
-$trigger = New-ScheduleTaskTrigger -Once -At (Get-Date)
+$trigger = New-ScheduledTaskTrigger -Once -At (Get-Date)
 
 Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -Force
 
