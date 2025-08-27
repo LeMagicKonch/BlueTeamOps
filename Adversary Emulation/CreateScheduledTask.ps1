@@ -8,4 +8,4 @@ Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -Fo
 
 Start-Sleep -Seconds 5
 
-Start-ScheduleTask -TaskName $taskName
+Start-ScheduledTask -TaskName $taskName
