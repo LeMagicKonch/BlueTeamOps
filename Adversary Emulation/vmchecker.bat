@@ -24,20 +24,6 @@ if %errorlevel% equ 0 (
     goto :end
 )
 
-:: Timing-based detection (simplified, as precise timing is limited in batch)
-:: Malware often checks for execution delays indicative of VM analysis
-set startTime=%time%
-ping 127.0.0.1 -n 2 > nul
-set endTime=%time%
-:: Calculate time difference (rough approximation in batch)
-for /f "tokens=1-4 delims=:." %%a in ("%startTime%") do set /a startMs=%%a*360000+%%b*6000+%%c*100+%%d
-for /f "tokens=1-4 delims=:." %%a in ("%endTime%") do set /a endMs=%%a*360000+%%b*6000+%%c*100+%%d
-set /a timeDiff=%endMs%-%startMs%
-if %timeDiff% LSS 100 (
-    echo [DETECTED] Unusually fast execution time, possible VM environment.
-    goto :end
-)
-
 :: If no VM indicators are found
 echo [NOT DETECTED] This system does not exhibit common virtual machine characteristics.
 
