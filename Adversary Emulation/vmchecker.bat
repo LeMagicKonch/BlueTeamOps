@@ -17,13 +17,6 @@ if %errorlevel% equ 0 (
     goto :end
 )
 
-:: Check for hypervisor presence
-systeminfo | findstr /i "hypervisor" | findstr /i "detected" > nul
-if %errorlevel% equ 0 (
-    echo [DETECTED] Hypervisor presence indicates a virtual machine.
-    goto :end
-)
-
 :: Check for VM-related services
 sc query | findstr /i "vmms vmware virtualbox parallels vboxsvc" > nul
 if %errorlevel% equ 0 (
