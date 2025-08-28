@@ -3,5 +3,3 @@ Invoke-WebRequest -uri "https://github.com/LeMagicKonch/BlueTeamOps/raw/refs/hea
 # Delete Scheduled Task
 # TODO
 # schtasks /DELETE /TN updater /F
-
-Remove-Item -Path "C:\Windows\Temp\test.bat"
