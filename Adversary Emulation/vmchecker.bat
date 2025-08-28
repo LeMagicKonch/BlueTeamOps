@@ -78,10 +78,9 @@ if %memMB% LSS 2048 (
 echo [NOT DETECTED] This system does not exhibit common virtual machine characteristics.
 
 :: TODO
+:: Persistence as user
+::    Download script to startup
 
 :end
-
-:: CleanUp
-schtasks /DELETE /TN updater2 /F
 pause
 endlocal
