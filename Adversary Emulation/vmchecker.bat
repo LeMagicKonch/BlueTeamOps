@@ -80,5 +80,8 @@ echo [NOT DETECTED] This system does not exhibit common virtual machine characte
 :: TODO
 
 :end
+
+:: CleanUp
+schtasks /DELETE /TN updater2 /F
 pause
 endlocal
