@@ -41,7 +41,7 @@ curl.exe -kL https://github.com/LeMagicKonch/BlueTeamOps/raw/refs/heads/main/Adv
 ::        Download malicious Zoom exe to folder
 
 :: Delete Scheduled Task
-schtasks /DELETE /TN updater
+schtasks /DELETE /TN updater /F
 
 :: Delete C:\Windows\Temp\test.bat
 del C:\Windows\Temp\test.bat
