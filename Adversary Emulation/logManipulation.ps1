@@ -1,6 +1,6 @@
 # Corrupt PowerShell ConsoleHistory Text
 # Permissions Required: Normal
-echo "" > echo "" > C:\Users\$env:USERNAME\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+echo "" > C:\Users\$env:USERNAME\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 
 # Disable Script Block Logging
 # PErmissions Required: Admin
