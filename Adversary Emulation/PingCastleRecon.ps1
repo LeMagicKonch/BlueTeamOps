@@ -2,16 +2,16 @@
 $assessment = "AD_Assessment_" + $(Get-Date -Format yyyyMMddTHHmmssffffZ) + ".zip"
 
 #Download PingCastle
-Invoke-WebRequest -uri "https://github.com/vletoux/pingcastle/releases/download/3.1.0.1/PingCastle_3.1.0.1.zip" -outfile "$env:userprofile\Downloads\PingCastle_3.1.0.1.zip"
+Invoke-WebRequest -uri "https://github.com/netwrix/pingcastle/releases/download/3.4.1.38/PingCastle_3.4.1.38.zip" -outfile "$env:userprofile\Downloads\PingCastle.zip"
 
 #Extract PingCastle Files
-Expand-Archive -path "$env:userprofile\Downloads\PingCastle_3.1.0.1.zip" -DestinationPath "$env:userprofile\Downloads\PingCastle_3.1.0.1"
+Expand-Archive -path "$env:userprofile\Downloads\PingCastle.zip" -DestinationPath "$env:userprofile\Downloads\PingCastle"
 
 #Run PingCastle with no enumeration limit
-Set-Location -Path "$env:USERPROFILE\Downloads\PingCastle_3.1.0.1" ; .\PingCastle.exe --healthcheck --no-enum-limit
+Set-Location -Path "$env:USERPROFILE\Downloads\PingCastle" ; .\PingCastle.exe --healthcheck --no-enum-limit
 
 #Compress report to zip file
-Compress-Archive -Path "$env:USERPROFILE\Downloads\PingCastle_3.1.0.1\*.html" -DestinationPath "$env:USERPROFILE\Downloads\$assessment"
+Compress-Archive -Path "$env:USERPROFILE\Downloads\PingCastle\*.html" -DestinationPath "$env:USERPROFILE\Downloads\$assessment"
 
 #Change directory so that file upload accesses correct area
 Cd ..
@@ -23,9 +23,9 @@ $wc = New-Object System.Net.WebClient
 $resp = $wc.UploadFile($url,$file)
 
 #Clean up CLO's endpoint
-Remove-Item -Path "$env:userprofile\Downloads\PingCastle_3.1.0.1.zip" -Recurse -Force
+Remove-Item -Path "$env:userprofile\Downloads\PingCastle.zip" -Recurse -Force
 
-Remove-Item -Path "$env:userprofile\Downloads\PingCastle_3.1.0.1" -Recurse -Force
+Remove-Item -Path "$env:userprofile\Downloads\PingCastle" -Recurse -Force
 
 Remove-Item -Path "$env:userprofile\Downloads\$assessment" -Recurse -Force
 
