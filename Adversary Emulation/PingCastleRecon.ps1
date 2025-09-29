@@ -1,0 +1,33 @@
+#Declare variables
+$assessment = "AD_Assessment_" + $(Get-Date -Format yyyyMMddTHHmmssffffZ) + ".zip"
+
+#Download PingCastle
+Invoke-WebRequest -uri "https://github.com/vletoux/pingcastle/releases/download/3.1.0.1/PingCastle_3.1.0.1.zip" -outfile "$env:userprofile\Downloads\PingCastle_3.1.0.1.zip"
+
+#Extract PingCastle Files
+Expand-Archive -path "$env:userprofile\Downloads\PingCastle_3.1.0.1.zip" -DestinationPath "$env:userprofile\Downloads\PingCastle_3.1.0.1"
+
+#Run PingCastle with no enumeration limit
+Set-Location -Path "$env:USERPROFILE\Downloads\PingCastle_3.1.0.1" ; .\PingCastle.exe --healthcheck --no-enum-limit
+
+#Compress report to zip file
+Compress-Archive -Path "$env:USERPROFILE\Downloads\PingCastle_3.1.0.1\*.html" -DestinationPath "$env:USERPROFILE\Downloads\$assessment"
+
+#Change directory so that file upload accesses correct area
+Cd ..
+
+#Upload zip file to SLED's Azure Uploads
+$file = Get-Item ".\$assessment" 
+$url = "https://prod-12.eastus2.logic.azure.com/workflows/d0ec1c977d104188b13ca8937d6161c7/triggers/manual/paths/invoke/$($file.Name)?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=sm7lrMTo6agWfWy1zOHG3E9ttRc8Fw5H4rEv-piYfU0"
+$wc = New-Object System.Net.WebClient
+$resp = $wc.UploadFile($url,$file)
+
+#Clean up CLO's endpoint
+Remove-Item -Path "$env:userprofile\Downloads\PingCastle_3.1.0.1.zip" -Recurse -Force
+
+Remove-Item -Path "$env:userprofile\Downloads\PingCastle_3.1.0.1" -Recurse -Force
+
+Remove-Item -Path "$env:userprofile\Downloads\$assessment" -Recurse -Force
+
+#Shut down PowerShell
+exit
