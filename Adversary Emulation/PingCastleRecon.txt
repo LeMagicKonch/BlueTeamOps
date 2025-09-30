@@ -5,7 +5,7 @@ $assessment = "AD_Assessment_" + $(Get-Date -Format yyyyMMddTHHmmssffffZ) + ".zi
 Invoke-WebRequest -uri "https://github.com/netwrix/pingcastle/releases/download/3.4.1.38/PingCastle_3.4.1.38.zip" -outfile "$env:userprofile\Downloads\PingCastle.zip"
 
 #Extract PingCastle Files
-Expand-Archive -path "$env:userprofile\Downloads\PingCastle_3.4.1.38.zip" -DestinationPath "$env:userprofile\Downloads\PingCastle"
+Expand-Archive -path "$env:userprofile\Downloads\PingCastle.zip" -DestinationPath "$env:userprofile\Downloads\PingCastle"
 
 #Run PingCastle with no enumeration limit
 Set-Location -Path "$env:USERPROFILE\Downloads\PingCastle" ; .\PingCastle.exe --healthcheck --no-enum-limit
